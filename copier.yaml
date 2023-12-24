@@ -15,6 +15,5 @@ description:
 
 _template_suffix: .jinja
 _min_copier_version: "9.1.0"
-_subdirectory: project
 _skip_if_exists:
   - CHANGELOG.md
