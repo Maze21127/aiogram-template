@@ -47,7 +47,6 @@ major_version_zero = true
 
 [tool.semantic_release]
 version_toml = ["pyproject.toml:tool.poetry.version"]
-version_variables = ["src/__init__.py:__version__"]
 branch = "main"
 hvcs = "githab"
 commit_message = "chore(release): v{version}"
