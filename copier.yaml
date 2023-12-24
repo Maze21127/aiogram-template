@@ -1,16 +1,16 @@
-project_name:
-  type: str
-  help: "Project name"
-  placeholder: "My Super Telegram Bot"
-
-author:
-  type: str
-  help: "Author"
-  placeholder: "Author author@gmail.com"
-
-description:
-  type: str
-  help: "Description"
-
-_skip_if_exists:
-  - CHANGELOG.md
+#project_name:
+#  type: str
+#  help: "Project name"
+#  placeholder: "My Super Telegram Bot"
+#
+#author:
+#  type: str
+#  help: "Author"
+#  placeholder: "Author author@gmail.com"
+#
+#description:
+#  type: str
+#  help: "Description"
+#
+#_skip_if_exists:
+#  - CHANGELOG.md
