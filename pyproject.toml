@@ -1,0 +1,111 @@
+[tool.poetry]
+name = "aiogram-template"
+version = "0.1.0"
+description = ""
+authors = ["maze <invoker322sf@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pydantic = "^2.5.3"
+pydantic-settings = "^2.1.0"
+aiogram = "^3.2.0"
+loguru = "^0.7.2"
+
+[tool.poetry.group.DEV.dependencies]
+commitizen = "^3.13.0"
+python-semantic-release = "^8.7.0"
+ruff = "^0.1.9"
+copier = "^9.1.0"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+pythonpath = [".", "src"]
+
+[tool.ruff]
+line-length = 120
+select = ["A", "B", "C", "E", "F", "I", "Q", "ASYNC", "N", "W", "UP", "T20", "PT", "SIM"]
+ignore = ["B008"]
+exclude = ["migrations/"]
+
+[tool.ruff.per-file-ignores]
+"models.py" = ["A003"] # id for models
+"schemas.py" = ["A003", "N805"] # id for schemas
+"__init__.py" = ["F401"] # unused imports
+"mixins.py" = ["N805", "A003"] # cls instead self, id for modles
+"exceptions.py" = ["N818"] # exception instead error
+"src/db/core.py" = ["E501"] # too long line for annotated
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "v$version"
+version_scheme = "semver"
+version_provider = "poetry"
+update_changelog_on_bump = true
+major_version_zero = true
+
+[tool.semantic_release]
+version_toml = ["pyproject.toml:tool.poetry.version"]
+version_variables = ["src/__init__.py:__version__"]
+branch = "main"
+hvcs = "githab"
+commit_message = "chore(release): v{version}"
+commit_parser = "angular"
+upload_to_pypi = false
+upload_to_release = true
+upload_to_repository = true
+logging_use_named_masks = true
+major_on_zero = true
+version_source = "tag"
+tag_format = "v{version}"
+
+[tool.semantic_release.branches.main]
+match = "(main|master)"
+prerelease_token = "rc"
+prerelease = false
+
+[tool.semantic_release.changelog]
+template_dir = "templates"
+changelog_file = "CHANGELOG.md"
+exclude_commit_patterns = []
+
+[tool.semantic_release.changelog.environment]
+block_start_string = "{%"
+block_end_string = "%}"
+variable_start_string = "{{"
+variable_end_string = "}}"
+comment_start_string = "{#"
+comment_end_string = "#}"
+trim_blocks = false
+lstrip_blocks = false
+newline_sequence = "\n"
+keep_trailing_newline = false
+extensions = []
+autoescape = true
+
+[tool.semantic_release.commit_author]
+env = "GIT_COMMIT_AUTHOR"
+default = "semantic-release <semantic-release>"
+
+[tool.semantic_release.commit_parser_options]
+allowed_tags = ["build", "chore", "ci", "docs", "feat", "fix", "perf", "style", "refactor", "test"]
+minor_tags = ["feat"]
+patch_tags = ["fix", "perf"]
+
+[tool.semantic_release.remote.token]
+env = "GH_TOKEN"
+
+[tool.semantic_release.remote]
+name = "origin"
+type = "github"
+ignore_token_for_push = false
+
+
+[tool.semantic_release.publish]
+dist_glob_patterns = []
+upload_to_vcs_release = false
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
