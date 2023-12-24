@@ -17,6 +17,7 @@ commitizen = "^3.13.0"
 python-semantic-release = "^8.7.0"
 ruff = "^0.1.9"
 copier = "^9.1.0"
+pre-commit = "^3.6.0"
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
