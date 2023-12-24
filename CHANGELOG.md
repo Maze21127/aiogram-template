@@ -2,7 +2,38 @@
 
 
 
+## v0.2.1 (2023-12-24)
+
+### Chore
+
+* chore: убраны лишние файлы ([`af995db`](https://github.com/Maze21127/aiogram-template/commit/af995db4381485465b6831b6bdfaa51de14a6401))
+
+* chore: убраны лишние файлы ([`185cb23`](https://github.com/Maze21127/aiogram-template/commit/185cb235f7b87499e54bc70185c8a2494b9c1643))
+
+* chore: убраны лишние файлы ([`a8bf6cd`](https://github.com/Maze21127/aiogram-template/commit/a8bf6cd7ccfe2b60b4ecad1a8d050538b8bdd149))
+
+* chore: убраны лишние файлы ([`6918722`](https://github.com/Maze21127/aiogram-template/commit/691872266836460d054b04454b36b14c2dd472c3))
+
+* chore: убраны лишние файлы ([`997eeb0`](https://github.com/Maze21127/aiogram-template/commit/997eeb077ae58fa45f8546d38c45fd1e91f2d3a8))
+
+* chore: убраны лишние файлы ([`36a4875`](https://github.com/Maze21127/aiogram-template/commit/36a48751ce9bea61a75e620c48347b88d33720e0))
+
+* chore: убраны лишние файлы ([`64c8af3`](https://github.com/Maze21127/aiogram-template/commit/64c8af3a6a44aed6542484beadd2489c06e22f6a))
+
+### Fix
+
+* fix: исправлен автор ([`f06aa8c`](https://github.com/Maze21127/aiogram-template/commit/f06aa8cdd90bfa3602a41a9e821855571ca5ca4a))
+
+### Unknown
+
+* Merge remote-tracking branch &#39;origin/main&#39; ([`74faa43`](https://github.com/Maze21127/aiogram-template/commit/74faa431063a0d4f6ddfcde389638dba9be2b16f))
+
+
 ## v0.2.0 (2023-12-24)
+
+### Chore
+
+* chore(release): v0.2.0 ([`740ef40`](https://github.com/Maze21127/aiogram-template/commit/740ef407b69caecc4126473b176f268e9c31c756))
 
 ### Feature
 
