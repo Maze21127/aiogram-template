@@ -3,10 +3,15 @@ project_name:
   help: "Project name"
   placeholder: "My Super Telegram Bot"
 
-author:
+author_name:
   type: str
-  help: "Author"
-  placeholder: "Author author@gmail.com"
+  help: "Author Name"
+  placeholder: "Author"
+
+author_email:
+  type: str
+  help: "Email"
+  placeholder: "author@gmail.com"
 
 description:
   type: str
