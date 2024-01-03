@@ -31,9 +31,9 @@ poetry install --with DEV
  ```
 Установить git хуки
 ```bash
-pre-commit install
-pre-commit install --hook-type commit-msg
-pre-commit install --hook-type pre-push
+poetry run pre-commit install
+poetry run pre-commit install --hook-type commit-msg
+poetry run pre-commit install --hook-type pre-push
 ```
 Создание коммитов и публикация изменений.
 
