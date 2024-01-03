@@ -11,6 +11,9 @@ pydantic = "^2.5.3"
 pydantic-settings = "^2.1.0"
 aiogram = "^3.3.0"
 loguru = "^0.7.2"
+{% if use_redis %}
+redis = "^5.0.1"
+{% endif %}
 
 [tool.poetry.group.DEV.dependencies]
 commitizen = "^3.13.0"
