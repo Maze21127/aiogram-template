@@ -28,6 +28,7 @@ use_redis:
 
 
 _template_suffix: .jinja
+_subdirectory: project
 _min_copier_version: "9.1.0"
 _skip_if_exists:
   - CHANGELOG.md
