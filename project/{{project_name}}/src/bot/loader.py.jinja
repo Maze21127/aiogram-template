@@ -13,7 +13,8 @@ bot = Bot(token=settings.bot.TOKEN.get_secret_value())
 
 {% if use_redis %}
 redis_client = redis.Redis.from_url(settings.redis.DSN)
-dp = Dispatcher(storage=RedisStorage(redis_client))
+redis_storage = RedisStorage(redis_client)
+dp = Dispatcher(storage=redis_storage)
 {% else %}
 dp = Dispatcher(storage=MemoryStorage())
 {% endif %}

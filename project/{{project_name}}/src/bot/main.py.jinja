@@ -7,6 +7,10 @@ from loguru import logger
 from src.bot.handlers.commands import router as commands_router
 from src.bot.loader import bot as bot_instance
 from src.bot.loader import dp
+{% if use_redis %}
+from src.bot.utils.middlewares.throttling import ThrottlingMiddleware
+from src.bot.loader import redis_storage
+{% endif %}
 
 
 async def set_default_commands(bot: Bot) -> None:
@@ -33,6 +37,10 @@ async def main() -> None:
     dp.shutdown.register(on_shutdown)
 
     dp.include_router(commands_router)
+
+    {% if use_redis %}
+    dp.message.middleware.register(ThrottlingMiddleware(storage=redis_storage))
+    {% endif %}
 
     await bot_instance.delete_webhook(drop_pending_updates=True)
 

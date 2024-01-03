@@ -1,0 +1,27 @@
+from typing import Any, Awaitable, Callable, Dict
+
+from aiogram import BaseMiddleware
+from aiogram.fsm.storage.redis import RedisStorage
+from aiogram.types import TelegramObject
+
+
+class ThrottlingMiddleware(BaseMiddleware):
+    def __init__(self, storage: RedisStorage, timeout: int = 10, limit: int = 5) -> None:
+        self.storage = storage
+        self.timeout = timeout
+        self.limit = limit
+
+    async def __call__(self, handler: Callable[[TelegramObject, Dict[str, Any]], Awaitable[Any]], event: TelegramObject,
+                       data: Dict[str, Any]) -> Any:
+        user = f"user{event.from_user.id}"
+        value = await self.get_value(user)
+
+        if value >= self.limit:
+            return
+
+        await self.storage.redis.set(name=user, value=value, ex=self.timeout)
+        return await handler(event, data)
+
+    async def get_value(self, user) -> int:
+        value = await self.storage.redis.get(name=user)
+        return int(value.decode()) + 1 if value else 0
