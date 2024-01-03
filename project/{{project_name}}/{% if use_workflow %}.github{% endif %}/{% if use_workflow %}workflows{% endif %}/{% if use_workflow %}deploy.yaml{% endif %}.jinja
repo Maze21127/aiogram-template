@@ -18,9 +18,20 @@ jobs:
           username: {{ '${{ secrets.SSH_USER }}' }}
           key: {{ '${{ secrets.SSH_KEY }}' }}
           envs: BOT_TOKEN, {% if use_redis %}REDIS_DSN{% endif %}
-          script: |
+          script: >
             cd /root/code/{{ project_name }}
+
             git pull
+
             docker build -t {{ project_name }}_image .
+
+            if docker inspect {{ project_name }} &>/dev/null; then
+                docker stop {{ project_name }} || true
+                docker rm {{ project_name }} || true
+            fi
+
             docker stop {{ project_name }} && docker rm {{ project_name }}
-            docker run --name {{ project_name }} -e BOT_TOKEN=${BOT_TOKEN} {% if use_redis %}-e REDIS_DSN=${REDIS_DSN}{% endif %} -d {{ project_name }}_image
+            docker run --name {{ project_name }} -d
+            -e BOT_TOKEN=${BOT_TOKEN}
+            {% if use_redis %}-e REDIS_DSN=${REDIS_DSN}{% endif %}
+            {{ project_name }}_image
