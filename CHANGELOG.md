@@ -2,7 +2,24 @@
 
 
 
-## v0.5.0 (2024-01-04)
+## v0.5.1 (2024-01-04)
+
+### Chore
+
+* chore: обновлен README.md ([`5d75ba2`](https://github.com/Maze21127/aiogram-template/commit/5d75ba29dfecd63757f7a26a513cd048a4e2775e))
+
+* chore: обновлен deploy.yaml ([`a816aaf`](https://github.com/Maze21127/aiogram-template/commit/a816aaf562121c3bd504d70dca4aaafd6567b207))
+
+### Fix
+
+* fix: добавлен флаг -d в README.md.jinja ([`7c8c4c8`](https://github.com/Maze21127/aiogram-template/commit/7c8c4c817e1e7032b5aad843a44322e5ef707ee7))
+
+
+## v0.5.0 (2024-01-03)
+
+### Chore
+
+* chore(release): v0.5.0 ([`500a27c`](https://github.com/Maze21127/aiogram-template/commit/500a27c1b3285698055176c013640e1871c416fb))
 
 ### Feature
 
