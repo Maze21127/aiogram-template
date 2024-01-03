@@ -1,7 +1,7 @@
 project_name:
   type: str
   help: "Project name"
-  placeholder: "My Super Telegram Bot"
+  placeholder: "telegram_bot"
 
 author_name:
   type: str
