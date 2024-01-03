@@ -7,12 +7,14 @@
 ```bash
 poetry install --with DEV
  ```
+{% if use_pre_commit %}
 Установить git хуки
 ```bash
 poetry run pre-commit install
 poetry run pre-commit install --hook-type commit-msg
 poetry run pre-commit install --hook-type pre-push
 ```
+{% endif %}
 Создание коммитов и публикация изменений.
 
 Для проекта используется семантическое версионирование.
