@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aiogram-template"
-version = "0.4.0"
+version = "0.5.0"
 description = ""
 authors = ["maze <invoker322sf@gmail.com>"]
 readme = "README.md"

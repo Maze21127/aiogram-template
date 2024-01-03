@@ -2,9 +2,22 @@
 
 
 
-## v0.4.0 (2024-01-04)
+## v0.5.0 (2024-01-04)
+
+### Feature
+
+* feat: semantic release теперь опциональный ([`e66d32f`](https://github.com/Maze21127/aiogram-template/commit/e66d32ff976abdf0a02e2be4411bdf0b5b14f08b))
+
+* feat: pre-commit hooks info in README.md.jinja ([`9aac2b9`](https://github.com/Maze21127/aiogram-template/commit/9aac2b94d8b280c120fbfd99c66d03e315dfc2b9))
+
+* feat: добавлен анти спам миддлварь ([`d2b876e`](https://github.com/Maze21127/aiogram-template/commit/d2b876e5b54706a5c12b5852d8e0c9f2068a93f6))
+
+
+## v0.4.0 (2024-01-03)
 
 ### Chore
+
+* chore(release): v0.4.0 ([`4017a60`](https://github.com/Maze21127/aiogram-template/commit/4017a60ba37ee1d29a311e973c5344cfa276b0ba))
 
 * chore: изменены команды для установки хуков ([`5a00a5b`](https://github.com/Maze21127/aiogram-template/commit/5a00a5b21eb0ef672497ecd721d0b804bf907fb3))
 
