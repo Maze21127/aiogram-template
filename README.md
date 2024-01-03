@@ -24,15 +24,28 @@ pip install copier
 copier copy gh:Maze21127/aiogram-template project_name
 ```
 
-## Dev Environment
+## Локальная разработка
+Установить зависимости  
+```bash
+poetry install --with DEV
+ ```
+Установить git хуки
+```bash
+pre-commit install
+pre-commit install --hook-type commit-msg
+pre-commit install --hook-type pre-push
+```
+Создание коммитов и публикация изменений.
 
-1. Установить зависимости
-    ```bash
-    poetry install --with DEV
-    ```
-2. Установить git хуки
-    ```bash
-   pre-commit install
-   pre-commit install --hook-type commit-msg
-   pre-commit install --hook-type pre-push
-    ```
+Для проекта используется семантическое версионирование.  
+
+Коммиты должны соответствовать шаблону tag: message  
+
+Перед публикацией необходимо указать персональный токен в переменных окружения  
+```bash
+export GH_TOKEN=
+```
+Публикация изменений осуществляется с помощью команды:
+```bash
+semantic-release version 
+``` 
