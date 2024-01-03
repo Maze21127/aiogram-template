@@ -19,7 +19,6 @@ author_email:
 description:
   type: str
   help: "Description"
-  multiline: true
 
 use_redis:
   type: bool
