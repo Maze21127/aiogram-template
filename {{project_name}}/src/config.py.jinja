@@ -6,9 +6,17 @@ class BotSettings(BaseSettings):
     model_config = SettingsConfigDict(env_prefix="BOT_")
     TOKEN: SecretStr
 
+{% if use_redis %}
+class RedisSettings(BaseSettings):
+    model_config = SettingsConfigDict(env_prefix="REDIS_")
+    DSN: str
+{% endif %}
 
 class Settings(BaseSettings):
     bot: BotSettings() = BotSettings()
+    {% if use_redis %}
+    redis: RedisSettings = RedisSettings()
+    {% endif %}
 
 
 def get_settings() -> Settings:

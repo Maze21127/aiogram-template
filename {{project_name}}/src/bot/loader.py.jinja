@@ -1,0 +1,18 @@
+{% if use_redis %}
+import redis.asyncio as redis
+from aiogram.fsm.storage.redis import RedisStorage
+{% endif %}
+from aiogram import Bot, Dispatcher
+
+from src.config import get_settings
+
+settings = get_settings()
+bot = Bot(token=settings.bot.TOKEN.get_secret_value())
+
+{% if use_redis %}
+redis_client = redis.Redis.from_url(settings.redis.DSN)
+dp = Dispatcher(storage=RedisStorage(redis_client))
+{% else %}
+dp = Dispatcher()
+{% endif %}
+
