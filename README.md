@@ -5,6 +5,7 @@
 - Pre-commit (пре-коммит хуки)
 - Ruff (линтер)
 - Python Semantic Release (семантическое версионирование)
+- CI/CD github workflow
 
 ## Клонирование из шаблона
 
@@ -49,3 +50,11 @@ export GH_TOKEN=
 ```bash
 semantic-release version 
 ``` 
+
+## Github actions
+Добавить в secrets следующие переменные:
+- SSH_HOST
+- SSH_USER
+- SSH_KEY
+- BOT_TOKEN
+- REDIS_DSN (если есть Redis)
