@@ -2,9 +2,32 @@
 
 
 
+## v0.4.0 (2024-01-04)
+
+### Chore
+
+* chore: изменены команды для установки хуков ([`5a00a5b`](https://github.com/Maze21127/aiogram-template/commit/5a00a5b21eb0ef672497ecd721d0b804bf907fb3))
+
+* chore: убран лишний пробел ([`10f8e5c`](https://github.com/Maze21127/aiogram-template/commit/10f8e5c2e946a38f22ae5cb7e7c3ca0cc9302620))
+
+* chore: добавлено описание для коммитов и публикации изменений ([`4d024be`](https://github.com/Maze21127/aiogram-template/commit/4d024bef1326aa0d2bcf40461e73106d53eda845))
+
+* chore: добавлен вариант установки copier в описание ([`fba7cb8`](https://github.com/Maze21127/aiogram-template/commit/fba7cb8b3493760fe898aa3662eeafea268d5337))
+
+* chore: измены README.md ([`badc4ac`](https://github.com/Maze21127/aiogram-template/commit/badc4ac45ab3b0481b8d9c5a79a74547d862c598))
+
+### Feature
+
+* feat: add deploy workflow ([`14edd1b`](https://github.com/Maze21127/aiogram-template/commit/14edd1b1539fe994d64a6914c9f46ede3ef8b18e))
+
+* feat: добавлены состояния без redis ([`35bffba`](https://github.com/Maze21127/aiogram-template/commit/35bffba5ca16a056a16cb545823755babbf8e0df))
+
+
 ## v0.3.0 (2024-01-03)
 
 ### Chore
+
+* chore(release): v0.3.0 ([`a6d982e`](https://github.com/Maze21127/aiogram-template/commit/a6d982e081555717b7ea047ba35cc07eb7b9293f))
 
 * chore: обновлен файл README.md.jinja ([`e85f694`](https://github.com/Maze21127/aiogram-template/commit/e85f69471d8c40d9805e306f5177a1c6ce956e3c))
 
