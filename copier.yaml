@@ -20,7 +20,7 @@ description:
 use_redis:
   type: bool
   help: "Use redis storage?"
-  default: "yes"
+  default: true
 
 
 _template_suffix: .jinja
