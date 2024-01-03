@@ -9,10 +9,15 @@
 ## Клонирование из шаблона
 
 Установить copier  
-https://copier.readthedocs.io/en/stable/
+https://copier.readthedocs.io/en/stable/  
+pipx
 ```bash
 pipx install copier
 ```  
+pip
+```bash
+pip install copier
+``` 
 
 Скопировать шаблон
 ```bash
