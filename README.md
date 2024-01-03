@@ -25,7 +25,7 @@ copier copy gh:Maze21127/aiogram-template project_name
     ```bash
     poetry install --with DEV
     ```
-2. Install Hooks
+2. Установить git хуки
     ```bash
    pre-commit install
    pre-commit install --hook-type commit-msg
