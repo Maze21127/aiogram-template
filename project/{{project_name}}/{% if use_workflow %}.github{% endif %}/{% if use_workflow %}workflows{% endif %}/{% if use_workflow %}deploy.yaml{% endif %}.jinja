@@ -1,0 +1,26 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build and run bot
+        uses: appleboy/ssh-action@v1.0.0
+        env:
+          BOT_TOKEN: {{ '${{ secrets.BOT_TOKEN }}' }}
+          {% if use_redis %}REDIS_DSN: {{ '${{ secrets.REDIS_DSN }}' }}{% endif %}
+        with:
+          host: {{ '${{ secrets.SSH_HOST }}' }}
+          username: {{ '${{ secrets.SSH_USER }}' }}
+          key: {{ '${{ secrets.SSH_KEY }}' }}
+          envs: BOT_TOKEN, {% if use_redis %}REDIS_DSN{% endif %}
+          script: |
+            cd /root/code/{{ project_name }}
+            git pull
+            docker build -t {{ project_name }}_image .
+            docker stop {{ project_name }} && docker rm {{ project_name }}
+            docker run --name {{ project_name }} -e BOT_TOKEN=${BOT_TOKEN} {% if use_redis %}-e REDIS_DSN=${REDIS_DSN}{% endif %} -d {{ project_name }}_image
