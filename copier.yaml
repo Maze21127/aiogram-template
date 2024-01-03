@@ -25,6 +25,11 @@ use_pre_commit:
   help: "Use pre-commit hooks?"
   default: true
 
+use_semantic_release:
+  type: bool
+  help: "Use python semantic release?"
+  default: true
+
 use_redis:
   type: bool
   help: "Use redis storage?"

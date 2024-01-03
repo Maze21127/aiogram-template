@@ -20,8 +20,9 @@ ruff-lsp = "^0.0.48"
 pre-commit = "^3.6.0"
 {% endif %}
 commitizen = "^3.13.0"
+{% if use_semantic_release %}
 python-semantic-release = "^8.7.0"
-
+{% endif %}
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 pythonpath = [".", "src"]

@@ -15,6 +15,7 @@ poetry run pre-commit install --hook-type commit-msg
 poetry run pre-commit install --hook-type pre-push
 ```
 {% endif %}
+{% if use_semantic_release %}
 Создание коммитов и публикация изменений.
 
 Для проекта используется семантическое версионирование.
@@ -29,7 +30,7 @@ export GH_TOKEN=
 ```bash
 semantic-release version
 ```
-
+{% endif %}
 ## Run with docker
 ```bash
 docker build -t {{ project_name }} .
