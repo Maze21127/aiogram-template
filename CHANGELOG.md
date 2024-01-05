@@ -2,9 +2,18 @@
 
 
 
-## v0.5.1 (2024-01-04)
+## v0.6.0 (2024-01-05)
+
+### Feature
+
+* feat: добавлены кнопки ([`b1e7ff3`](https://github.com/Maze21127/aiogram-template/commit/b1e7ff373999ad3e83a48265fc36bdf3098b7192))
+
+
+## v0.5.1 (2024-01-03)
 
 ### Chore
+
+* chore(release): v0.5.1 ([`e90f410`](https://github.com/Maze21127/aiogram-template/commit/e90f4101013a1fa31c96c3ea32e48a9a46622a50))
 
 * chore: обновлен README.md ([`5d75ba2`](https://github.com/Maze21127/aiogram-template/commit/5d75ba29dfecd63757f7a26a513cd048a4e2775e))
 
