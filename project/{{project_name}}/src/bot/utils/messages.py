@@ -9,5 +9,4 @@ class Messages(BaseModel):
     commands: Commands = Commands()
 
 
-def get_messages() -> Messages:
-    return Messages()
+messages = Messages()
