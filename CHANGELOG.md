@@ -2,7 +2,22 @@
 
 
 
+## v0.7.0 (2024-01-07)
+
+### Feature
+
+* feat: добавлен --restart unless-stopped в команды запуска контейнера ([`77ea1dd`](https://github.com/Maze21127/aiogram-template/commit/77ea1dd839477bee67727af0e67782c11a2d240b))
+
+* feat: добавлена команда /help ([`423ab8f`](https://github.com/Maze21127/aiogram-template/commit/423ab8f6359fd9d026680509fd6e48fc65671f0e))
+
+* feat: сброс состояний на командах ([`3f920c4`](https://github.com/Maze21127/aiogram-template/commit/3f920c441977b6517a61ff1a914e35132801b493))
+
+
 ## v0.6.0 (2024-01-05)
+
+### Chore
+
+* chore(release): v0.6.0 ([`69172fe`](https://github.com/Maze21127/aiogram-template/commit/69172fe85027838b456dc97bcda35420c9810ff2))
 
 ### Feature
 
