@@ -1,4 +1,4 @@
-from pydantic import SecretStr
+from pydantic import {% if use_sqlalchemy %}PostgresDsn,{% endif %}SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -12,12 +12,23 @@ class RedisSettings(BaseSettings):
     DSN: str
 {% endif %}
 
+{% if use_sqlalchemy %}
+class DBSettings(BaseSettings):
+    model_config = SettingsConfigDict(env_prefix="DB_")
+    DSN: PostgresDsn
+    SCHEMA: str = "public"
+{% endif %}
+
 class Settings(BaseSettings):
     bot: BotSettings() = BotSettings()
     {% if use_redis %}
     redis: RedisSettings = RedisSettings()
     {% endif %}
 
+{% if use_sqlalchemy %}
+def get_db_settings() -> DBSettings:
+    return DBSettings()
+{% endif %}
 
 def get_settings() -> Settings:
     return Settings()

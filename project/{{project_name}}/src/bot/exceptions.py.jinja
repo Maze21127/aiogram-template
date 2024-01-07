@@ -1,0 +1,12 @@
+{% if use_sqlalchemy %}
+class UserIsBotError(Exception):
+    ...
+
+
+class UserAlreadyExistsError(Exception):
+    ...
+
+
+class UserNotFoundError(Exception):
+    ...
+{% endif %}

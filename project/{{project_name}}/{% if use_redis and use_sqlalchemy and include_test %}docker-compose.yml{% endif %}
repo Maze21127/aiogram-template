@@ -1,0 +1,72 @@
+version: "3.7"
+services:
+  redis_test:
+    image: redis:7-alpine
+    container_name: test_redis
+    expose:
+      - 6379
+    profiles:
+      - test
+    networks:
+      network:
+        ipv4_address: 10.5.0.3
+
+  db_test:
+    image: postgres:16-alpine3.17
+    container_name: test_db
+    expose:
+      - 5432
+    profiles:
+      - test
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      network:
+        ipv4_address: 10.5.0.4
+
+  run_test:
+    build:
+      context: .
+      args:
+        - DEV_ENV=main,dev
+    container_name: run_test
+    depends_on:
+      - redis_test
+      - db_test
+      - test_migrations
+    environment:
+      - DB_DSN=postgresql+asyncpg://postgres:postgres@10.5.0.4:5432/postgres
+      - REDIS_DSN=redis://10.5.0.3:6379/0
+      - BOT_TOKEN=None
+    command: pytest . --disable-warnings
+    profiles:
+      - test
+    networks:
+      - network
+
+  test_migrations:
+    build:
+      context:
+        .
+      args:
+        - DEV_ENV=main,dev
+    depends_on:
+      - db_test
+    environment:
+      - DB_DSN=postgresql+asyncpg://postgres:postgres@10.5.0.4:5432/postgres
+    container_name: migrations
+    command: alembic upgrade heads
+    profiles:
+      - test
+    networks:
+      - network
+
+
+networks:
+  network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1

@@ -1,0 +1,18 @@
+from sqlalchemy import String
+from sqlalchemy.orm import Mapped, mapped_column
+
+from src.database.core import Base, big_int_pk, str_256_nullable
+from src.database.mixins import IsDeletedMixin, TimestampMixin
+
+
+class TgUser(Base, IsDeletedMixin, TimestampMixin):
+    __tablename__ = "tg_user"
+
+    id: Mapped[big_int_pk]
+    first_name: Mapped[str_256_nullable]
+    last_name: Mapped[str_256_nullable]
+    username: Mapped[str_256_nullable]
+    language_code: Mapped[str] = mapped_column(String(10), nullable=True)
+
+    def __repr__(self) -> str:
+        return f"{self.id} {self.first_name} {self.username}"

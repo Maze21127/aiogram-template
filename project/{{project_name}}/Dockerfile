@@ -43,5 +43,3 @@ RUN chown python:python -R /app
 
 USER python
 COPY --chown=python:python . .
-
-CMD python src/bot/main.py

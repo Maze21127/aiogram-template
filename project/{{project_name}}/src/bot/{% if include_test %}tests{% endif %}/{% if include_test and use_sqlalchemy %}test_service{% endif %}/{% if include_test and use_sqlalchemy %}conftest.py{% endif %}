@@ -1,0 +1,2 @@
+async def create_data() -> None:
+    return None

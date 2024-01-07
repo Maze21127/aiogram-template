@@ -1,0 +1,25 @@
+import asyncio
+{% if use_sqlalchemy %}import os{% endif %}
+
+import pytest
+
+{% if use_sqlalchemy %}os.environ["DB_DSN"] = "postgresql+asyncpg://postgres:postgres@localhost:5432/postgres"{% endif %}
+
+{% if use_sqlalchemy %}from src.database.core import Base, engine  # noqa: E402{% endif %}
+
+@pytest.fixture(scope="session")
+def event_loop(request):
+    """Create an instance of the default event loop for each test case."""
+    loop = asyncio.get_event_loop_policy().new_event_loop()
+    yield loop
+    loop.close()
+{% if use_sqlalchemy %}
+# ruff: noqa: PT004
+@pytest.fixture(autouse=True, scope="session")
+async def prepare_database():
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.drop_all)
+        await conn.run_sync(Base.metadata.create_all)
+        yield conn
+        await conn.run_sync(Base.metadata.drop_all)
+{% endif %}

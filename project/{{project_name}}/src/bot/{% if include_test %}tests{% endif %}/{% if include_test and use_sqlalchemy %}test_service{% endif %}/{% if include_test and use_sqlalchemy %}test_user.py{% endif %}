@@ -1,0 +1,23 @@
+import pytest
+from aiogram import types
+
+from src.bot import exceptions, service
+from src.database.core import async_session
+
+
+async def test_create_user():
+    async with async_session() as session:
+        await service.user.create_user(types.User(id=1, is_bot=False, first_name="Test"), session)
+        user = await service.user.get_user(1, session)
+        assert user is not None
+
+        with pytest.raises(exceptions.UserAlreadyExistsError):
+            await service.user.create_user(types.User(id=1, is_bot=False, first_name="Test"), session)
+
+
+async def test_create_bot():
+    async with async_session() as session:
+        with pytest.raises(exceptions.UserIsBotError):
+            await service.user.create_user(types.User(id=2, is_bot=True, first_name="Test"), session)
+        with pytest.raises(exceptions.UserNotFoundError):
+            await service.user.get_user(2, session)

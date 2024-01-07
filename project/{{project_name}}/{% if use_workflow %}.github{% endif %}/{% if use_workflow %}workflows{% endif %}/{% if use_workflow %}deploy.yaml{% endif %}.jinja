@@ -5,7 +5,33 @@ on:
       - main
 
 jobs:
+  {% if use_sqlalchemy and use_redis and include_test %}
+  run_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Run Redis
+        run: docker-compose --profile test up -d --no-deps --build redis_test
+
+      - name: Run Postgres
+        run: docker-compose --profile test up -d --no-deps --build db_test
+
+      - name: Run migrations
+        run: docker-compose --profile test up --build test_migrations
+
+      - name: Run tests
+        run: docker-compose --profile test up --build run_test
+
+      - name: Stop services
+        run: docker-compose down
+  {% endif %}
   deploy:
+{% if use_sqlalchemy and use_redis and include_test %}
+    needs:
+      - run_test
+{% endif %}
     runs-on: ubuntu-latest
     steps:
       - name: Build and run bot
@@ -13,11 +39,12 @@ jobs:
         env:
           BOT_TOKEN: {{ '${{ secrets.BOT_TOKEN }}' }}
           {% if use_redis %}REDIS_DSN: {{ '${{ secrets.REDIS_DSN }}' }}{% endif %}
+          {% if use_sqlalchemy %}DB_DSN: {{ '${{ secrets.DB_DSN }}' }}{% endif %}
         with:
           host: {{ '${{ secrets.SSH_HOST }}' }}
           username: {{ '${{ secrets.SSH_USER }}' }}
           key: {{ '${{ secrets.SSH_KEY }}' }}
-          envs: BOT_TOKEN, {% if use_redis %}REDIS_DSN{% endif %}
+          envs: BOT_TOKEN, {% if use_redis %}REDIS_DSN{% endif %}, {% if use_sqlalchemy %}DB_DSN{% endif %}
           script: >
             cd /root/code/{{ project_name }}
 
@@ -30,9 +57,25 @@ jobs:
                 docker rm {{ project_name }} || true
             fi
 
-            docker stop {{ project_name }} && docker rm {{ project_name }}
+            {% if use_sqlalchemy %}
+            if docker inspect migrations &>/dev/null; then
+              docker stop migrations || true
+              docker rm migrations || true
+            fi
+
+            if ! docker run --name migrations
+              -e DB_DSN=${DB_DSN}
+              wow_auction_bot
+              alembic upgrade heads; then
+              echo "Failed to run migrations"
+              exit 1
+            fi
+            {% endif %}
+
             docker run --name {{ project_name }} -d
             -e BOT_TOKEN=${BOT_TOKEN}
             {% if use_redis %}-e REDIS_DSN=${REDIS_DSN}{% endif %}
+            {% if use_sqlalchemy %}-e DB_DSN=${DB_DSN}{% endif %}
             --restart unless-stopped
             {{ project_name }}_image
+            python src/bot/main.py
