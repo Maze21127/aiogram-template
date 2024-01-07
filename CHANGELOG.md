@@ -2,7 +2,18 @@
 
 
 
-## v0.8.0 (2024-01-07)
+## v0.9.0 (2024-01-08)
+
+### Feature
+
+* feat: добавлена поддержка базы данных ([`0b29c3d`](https://github.com/Maze21127/aiogram-template/commit/0b29c3dd2cc9b976efb9ad4c6bd16abc752dca2f))
+
+
+## v0.8.0 (2024-01-06)
+
+### Chore
+
+* chore(release): v0.8.0 ([`8a52058`](https://github.com/Maze21127/aiogram-template/commit/8a52058b50c2a2f9f3de244a201b0c90899487de))
 
 ### Feature
 
