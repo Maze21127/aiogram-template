@@ -34,4 +34,5 @@ jobs:
             docker run --name {{ project_name }} -d
             -e BOT_TOKEN=${BOT_TOKEN}
             {% if use_redis %}-e REDIS_DSN=${REDIS_DSN}{% endif %}
+            --restart unless-stopped
             {{ project_name }}_image

@@ -38,5 +38,6 @@ docker build -t {{ project_name }} .
 docker run --name {{ project_name }} -d \
   -e BOT_TOKEN=<bot_token> \
   {% if use_redis %}-e REDIS_DSN=<redis://> \{% endif %}
+  --restart unless-stopped
   {{ project_name }}
 ```
