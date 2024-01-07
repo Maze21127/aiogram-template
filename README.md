@@ -6,6 +6,8 @@
 - Ruff (линтер)
 - Python Semantic Release (семантическое версионирование)
 - CI/CD github workflow
+- Redis
+- SQLAlchemy via Alembic
 
 ## Клонирование из шаблона
 
@@ -58,3 +60,4 @@ semantic-release version
 - SSH_KEY
 - BOT_TOKEN
 - REDIS_DSN (если есть Redis)
+- DB_DSN (если есть SQLAlchemy (PostgreSQL))
