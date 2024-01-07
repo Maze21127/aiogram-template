@@ -1,0 +1,25 @@
+{% if include_test %}
+from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup
+
+from src.bot.keyboards.inline.core import KeyboardCallback
+from src.bot.keyboards.inline.core import get_keyboard as get_inline_keyboard
+from src.bot.keyboards.reply.core import get_keyboard as get_reply_keyboard
+
+
+def test_get_inline_keyboard():
+    keyboard = get_inline_keyboard()
+    assert isinstance(keyboard, InlineKeyboardMarkup)
+    for row in keyboard.inline_keyboard:
+        for button in row:
+            assert isinstance(button, InlineKeyboardButton)
+            assert (button.callback_data is not None or button.url is not None)
+            if button.callback_data is not None:
+                callback_data = KeyboardCallback.unpack(button.callback_data)
+                assert isinstance(callback_data, KeyboardCallback)
+
+
+def test_get_reply_keyboard():
+    keyboard = get_reply_keyboard()
+    assert isinstance(keyboard, ReplyKeyboardMarkup)
+
+{% endif %}

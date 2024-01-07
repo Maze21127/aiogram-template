@@ -20,6 +20,11 @@ description:
   type: str
   help: "Description"
 
+include_test:
+  type: bool
+  help: "Include test with pytest in project?"
+  default: true
+
 use_pre_commit:
   type: bool
   help: "Use pre-commit hooks?"

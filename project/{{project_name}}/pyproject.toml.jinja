@@ -20,13 +20,17 @@ ruff-lsp = "^0.0.48"
 pre-commit = "^3.6.0"
 {% endif %}
 commitizen = "^3.13.0"
-{% if use_semantic_release %}
-python-semantic-release = "^8.7.0"
+{% if use_semantic_release %}python-semantic-release = "^8.7.0"{% endif %}
+{% if include_test %}
+pytest = "^7.4.4"
+pytest-asyncio = "^0.23.3"
 {% endif %}
+
+{% if include_test %}
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 pythonpath = [".", "src"]
-
+{% endif %}
 [tool.ruff]
 line-length = 120
 select = ["A", "B", "C", "E", "F", "I", "Q", "ASYNC", "N", "W", "UP", "T20", "PT", "SIM"]

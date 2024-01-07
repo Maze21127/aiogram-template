@@ -11,7 +11,7 @@ pydantic = "^2.5.3"
 pydantic-settings = "^2.1.0"
 loguru = "^0.7.2"
 
-[tool.poetry.group.DEV.dependencies]
+[tool.poetry.group.dev.dependencies]
 commitizen = "^3.13.0"
 python-semantic-release = "^8.7.0"
 copier = "^9.1.0"
@@ -20,7 +20,6 @@ pre-commit = "^3.6.0"
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 pythonpath = [".", "src"]
-
 
 [tool.commitizen]
 name = "cz_conventional_commits"
@@ -85,11 +84,9 @@ name = "origin"
 type = "github"
 ignore_token_for_push = false
 
-
 [tool.semantic_release.publish]
 dist_glob_patterns = []
 upload_to_vcs_release = false
-
 
 [build-system]
 requires = ["poetry-core"]
