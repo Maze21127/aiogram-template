@@ -2,7 +2,18 @@
 
 
 
-## v0.7.0 (2024-01-07)
+## v0.8.0 (2024-01-07)
+
+### Feature
+
+* feat: добавлены тесты ([`d114617`](https://github.com/Maze21127/aiogram-template/commit/d1146178b9890f072e16756c58d0a45b641acc6d))
+
+
+## v0.7.0 (2024-01-06)
+
+### Chore
+
+* chore(release): v0.7.0 ([`081ed98`](https://github.com/Maze21127/aiogram-template/commit/081ed981347cc79e515aabec580f294410fee4b2))
 
 ### Feature
 
