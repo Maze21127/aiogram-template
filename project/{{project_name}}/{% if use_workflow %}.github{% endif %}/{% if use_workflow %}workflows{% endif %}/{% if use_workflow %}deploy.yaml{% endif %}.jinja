@@ -65,7 +65,7 @@ jobs:
 
             if ! docker run --name migrations
               -e DB_DSN=${DB_DSN}
-              wow_auction_bot
+              {{ project_name }}
               alembic upgrade heads; then
               echo "Failed to run migrations"
               exit 1
