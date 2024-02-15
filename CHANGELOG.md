@@ -2,7 +2,22 @@
 
 
 
-## v0.9.0 (2024-01-08)
+## v0.9.1 (2024-02-15)
+
+### Documentation
+
+* docs: edit README.md ([`9d9b1dc`](https://github.com/Maze21127/aiogram-template/commit/9d9b1dcfee0b202893ec001dfc2e0874f831c6fb))
+
+### Fix
+
+* fix: some fixes ([`b85684c`](https://github.com/Maze21127/aiogram-template/commit/b85684cdeed77555bc42ce306ff314d4bd4aede6))
+
+
+## v0.9.0 (2024-01-07)
+
+### Chore
+
+* chore(release): v0.9.0 ([`73dc9c5`](https://github.com/Maze21127/aiogram-template/commit/73dc9c5f686fcef5c8f67977d2aa45da421546df))
 
 ### Feature
 
