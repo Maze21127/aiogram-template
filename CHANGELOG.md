@@ -2,7 +2,18 @@
 
 
 
+## v0.10.1 (2024-02-16)
+
+### Fix
+
+* fix: fix conditions for docker-compose ([`02346ca`](https://github.com/Maze21127/aiogram-template/commit/02346ca188ced494f2e2df203adce4c8b5a78523))
+
+
 ## v0.10.0 (2024-02-16)
+
+### Chore
+
+* chore(release): v0.10.0 ([`61c9b05`](https://github.com/Maze21127/aiogram-template/commit/61c9b054563b024a076fb2fd4dba721194984702))
 
 ### Feature
 
