@@ -1,8 +1,9 @@
-from aiogram import Router
+from aiogram import F, Router
 from aiogram.filters import Command, CommandStart
 from aiogram.fsm.context import FSMContext
-from aiogram.types import Message
+from aiogram.types import CallbackQuery, Message
 
+from src.bot.keyboards.inline.core import KeyboardCallback, get_keyboard
 from src.bot.utils.messages import messages
 from src.bot.utils.models import Commands
 
