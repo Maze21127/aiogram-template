@@ -2,7 +2,14 @@
 
 
 
-## v0.10.3 (2024-02-17)
+## v0.10.4 (2024-02-17)
+
+### Fix
+
+* fix: add envs to alembic env.py ([`2cbb9a0`](https://github.com/Maze21127/aiogram-template/commit/2cbb9a0416a66597a89661a1d45956a45fc176c0))
+
+
+## v0.10.3 (2024-02-16)
 
 ### Fix
 
