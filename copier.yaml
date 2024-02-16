@@ -20,6 +20,11 @@ description:
   type: str
   help: "Description"
 
+use_ruff:
+  type: bool
+  help: "Include ruff linter in project?"
+  default: true
+
 include_test:
   type: bool
   help: "Include test with pytest in project?"
