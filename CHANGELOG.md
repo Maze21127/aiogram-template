@@ -2,7 +2,18 @@
 
 
 
+## v0.10.2 (2024-02-17)
+
+### Fix
+
+* fix: imports in start handlers file ([`638b18c`](https://github.com/Maze21127/aiogram-template/commit/638b18c87b6eaf06bba8344fe35e9a5163ea4a4b))
+
+
 ## v0.10.1 (2024-02-16)
+
+### Chore
+
+* chore(release): v0.10.1 ([`a5442f3`](https://github.com/Maze21127/aiogram-template/commit/a5442f324b8bd304f3cebcce95c1b09ac51e010d))
 
 ### Fix
 
