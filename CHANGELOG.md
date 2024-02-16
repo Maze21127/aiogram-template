@@ -2,7 +2,22 @@
 
 
 
-## v0.9.1 (2024-02-15)
+## v0.10.0 (2024-02-16)
+
+### Feature
+
+* feat: add commitizen ([`92948d2`](https://github.com/Maze21127/aiogram-template/commit/92948d2460ef779080570e799f31262b97234f47))
+
+### Fix
+
+* fix: question for ruff ([`6ad34a0`](https://github.com/Maze21127/aiogram-template/commit/6ad34a063528751c2e4ca5d0def24579a98789d1))
+
+
+## v0.9.1 (2024-02-14)
+
+### Chore
+
+* chore(release): v0.9.1 ([`3fff563`](https://github.com/Maze21127/aiogram-template/commit/3fff563cabc2cf7ddd7b36453e21208c29c739c7))
 
 ### Documentation
 
