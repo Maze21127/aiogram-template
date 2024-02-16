@@ -35,6 +35,11 @@ use_sqlalchemy:
   help: "Use SQLAlchemy and Alembic?"
   default: true
 
+use_commitizen:
+  type: bool
+  help: "Use Commitizen for check commits?"
+  default: true
+
 use_pre_commit:
   type: bool
   help: "Use pre-commit hooks?"

@@ -24,6 +24,7 @@ greenlet = "^3.0.3"
 {% if use_ruff %}
 ruff = "^0.1.9"
 ruff-lsp = "^0.0.48"
+{% endif %}
 {% if use_pre_commit and use_ruff %}
 pre-commit = "^3.6.0"
 {% endif %}
@@ -38,7 +39,8 @@ pytest-asyncio = "^0.23.3"
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 pythonpath = [".", "src"]
-{% endif %}
+
+{% if use_ruff %}
 [tool.ruff]
 line-length = 120
 select = ["A", "B", "C", "E", "F", "I", "Q", "ASYNC", "N", "W", "UP", "T20", "PT", "SIM"]
@@ -52,7 +54,8 @@ exclude = ["migrations/", "migration/"]
 "mixins.py" = ["N805", "A003"] # cls instead self, id for modles
 "exceptions.py" = ["N818"] # exception instead error
 "src/db/core.py" = ["E501"] # too long line for annotated
-
+{% endif %}
+{% if use_commitizen %}
 [tool.commitizen]
 name = "cz_conventional_commits"
 tag_format = "v$version"
@@ -60,7 +63,7 @@ version_scheme = "semver"
 version_provider = "poetry"
 update_changelog_on_bump = true
 major_version_zero = true
-
+{% endif %}
 [tool.semantic_release]
 version_toml = ["pyproject.toml:tool.poetry.version"]
 branch = "main"

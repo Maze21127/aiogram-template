@@ -2,13 +2,16 @@ default_language_version:
     python: python3.12
 
 repos:
+{% if use_ruff %}
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.0.292
     hooks:
       - id: ruff
-
+{% endif %}
+{% if use_commitizen %}
   - repo: https://github.com/commitizen-tools/commitizen
     rev: master
     hooks:
       - id: commitizen
         stages: [ commit-msg ]
+{% endif %}
