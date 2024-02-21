@@ -2,7 +2,16 @@
 
 
 
-## v0.10.5 (2024-02-21)
+## v0.10.6 (2024-02-21)
+
+### Fix
+
+* fix: fix github hvcs typo ([`37722a0`](https://github.com/Maze21127/aiogram-template/commit/37722a00ddea10888d38152a85c5266674f53ce9))
+
+* fix: fix github hvcs typo ([`3023454`](https://github.com/Maze21127/aiogram-template/commit/30234544773fb4970f898825431b8821c16ad386))
+
+
+## v0.10.5 (2024-02-20)
 
 ### Fix
 
