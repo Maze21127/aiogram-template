@@ -2,7 +2,14 @@
 
 
 
-## v0.10.4 (2024-02-17)
+## v0.10.5 (2024-02-21)
+
+### Fix
+
+* fix: change group DEV to dev ([`3fe9281`](https://github.com/Maze21127/aiogram-template/commit/3fe9281cb69e266a1077164ae10c6f50b9293873))
+
+
+## v0.10.4 (2024-02-16)
 
 ### Fix
 
