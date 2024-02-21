@@ -32,7 +32,7 @@ major_version_zero = true
 [tool.semantic_release]
 version_toml = ["pyproject.toml:tool.poetry.version"]
 branch = "main"
-hvcs = "githab"
+hvcs = "github"
 commit_message = "chore(release): v{version}"
 commit_parser = "angular"
 upload_to_pypi = false
@@ -86,7 +86,7 @@ ignore_token_for_push = false
 
 [tool.semantic_release.publish]
 dist_glob_patterns = []
-upload_to_vcs_release = false
+upload_to_vcs_release = true
 
 [build-system]
 requires = ["poetry-core"]
