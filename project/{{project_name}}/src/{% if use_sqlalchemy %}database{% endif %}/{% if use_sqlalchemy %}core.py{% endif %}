@@ -32,6 +32,9 @@ str_256_nullable = Annotated[str, mapped_column(String(256), nullable=True)]
 str_256 = Annotated[str, String(256)]
 guid_pk = Annotated[uuid.UUID, mapped_column(primary_key=True, default=uuid.uuid4)]
 big_int_pk = Annotated[int, mapped_column(BigInteger, nullable=False, primary_key=True)]
+int_pk = Annotated[
+    int, mapped_column(Integer, nullable=False, primary_key=True)
+]
 bool_default_false = Annotated[bool, mapped_column(Boolean, default=False)]
 
 
