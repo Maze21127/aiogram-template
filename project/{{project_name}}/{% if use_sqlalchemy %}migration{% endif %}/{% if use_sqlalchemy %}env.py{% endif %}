@@ -11,8 +11,8 @@ if not os.getenv("REDIS_DSN"):
     os.environ["REDIS_DSN"] = ""
 
 
-from src.config import get_db_settings
-from src.database.core import Base
+from config import get_db_settings
+from database.core import Base
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
