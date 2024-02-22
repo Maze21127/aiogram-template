@@ -2,7 +2,18 @@
 
 
 
+## v0.11.2 (2024-02-22)
+
+### Fix
+
+* fix: fix imports ([`250863d`](https://github.com/Maze21127/aiogram-template/commit/250863dafb723475077de4a488a2a6b745c74855))
+
+
 ## v0.11.1 (2024-02-22)
+
+### Chore
+
+* chore(release): v0.11.1 ([`6712544`](https://github.com/Maze21127/aiogram-template/commit/6712544dfcc3f40d8dce686d626c8b6c98b2dbe4))
 
 ### Fix
 
