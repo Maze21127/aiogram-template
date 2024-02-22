@@ -2,7 +2,18 @@
 
 
 
+## v0.11.1 (2024-02-22)
+
+### Fix
+
+* fix: fix import in alembic env file ([`2a289f3`](https://github.com/Maze21127/aiogram-template/commit/2a289f3265d425dbe70bcf9be2f59c20914cb5aa))
+
+
 ## v0.11.0 (2024-02-22)
+
+### Chore
+
+* chore(release): v0.11.0 ([`ee6e55b`](https://github.com/Maze21127/aiogram-template/commit/ee6e55b303b60fd6fa58aabc14b4f88bcd44a6ed))
 
 ### Feature
 
