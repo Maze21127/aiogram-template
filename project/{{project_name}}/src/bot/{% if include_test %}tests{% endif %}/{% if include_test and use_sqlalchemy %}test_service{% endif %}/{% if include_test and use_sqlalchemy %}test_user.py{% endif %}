@@ -1,8 +1,8 @@
 import pytest
 from aiogram import types
 
-from src.bot import exceptions, service
-from src.database.core import async_session
+from bot import exceptions, service
+from database.core import async_session
 
 
 async def test_create_user():

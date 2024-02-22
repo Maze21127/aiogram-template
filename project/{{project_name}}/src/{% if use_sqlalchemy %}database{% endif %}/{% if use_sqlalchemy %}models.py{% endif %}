@@ -1,8 +1,8 @@
 from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column
 
-from src.database.core import Base, big_int_pk, str_256_nullable
-from src.database.mixins import IsDeletedMixin, TimestampMixin
+from database.core import Base, big_int_pk, str_256_nullable
+from database.mixins import IsDeletedMixin, TimestampMixin
 
 
 class TgUser(Base, IsDeletedMixin, TimestampMixin):

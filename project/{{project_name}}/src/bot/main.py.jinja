@@ -4,12 +4,12 @@ from aiogram import Bot
 from aiogram.types import BotCommand
 from loguru import logger
 
-from src.bot.handlers.commands import router as commands_router
-from src.bot.loader import bot as bot_instance
-from src.bot.loader import dp
+from bot.handlers.commands import router as commands_router
+from bot.loader import bot as bot_instance
+from bot.loader import dp
 {% if use_redis %}
-from src.bot.utils.middlewares.throttling import ThrottlingMiddleware
-from src.bot.loader import redis_storage
+from bot.utils.middlewares.throttling import ThrottlingMiddleware
+from bot.loader import redis_storage
 {% endif %}
 
 

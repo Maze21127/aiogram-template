@@ -4,8 +4,8 @@ from aiogram import types
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
-import src.bot.exceptions as exceptions
-from src.database.models import TgUser
+import bot.exceptions as exceptions
+from database.models import TgUser
 
 
 async def create_user(user: types.User, session: AsyncSession) -> None:

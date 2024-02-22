@@ -5,7 +5,7 @@ import pytest
 
 {% if use_sqlalchemy %}os.environ["DB_DSN"] = "postgresql+asyncpg://postgres:postgres@localhost:5432/postgres"{% endif %}
 
-{% if use_sqlalchemy %}from src.database.core import Base, engine  # noqa: E402{% endif %}
+{% if use_sqlalchemy %}from database.core import Base, engine  # noqa: E402{% endif %}
 
 @pytest.fixture(scope="session")
 def event_loop(request):

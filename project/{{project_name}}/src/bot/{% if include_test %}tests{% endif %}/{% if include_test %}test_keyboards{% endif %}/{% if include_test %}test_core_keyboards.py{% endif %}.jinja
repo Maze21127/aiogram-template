@@ -1,9 +1,9 @@
 {% if include_test %}
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup
 
-from src.bot.keyboards.inline.core import KeyboardCallback
-from src.bot.keyboards.inline.core import get_keyboard as get_inline_keyboard
-from src.bot.keyboards.reply.core import get_keyboard as get_reply_keyboard
+from bot.keyboards.inline.core import KeyboardCallback
+from bot.keyboards.inline.core import get_keyboard as get_inline_keyboard
+from bot.keyboards.reply.core import get_keyboard as get_reply_keyboard
 
 
 def test_get_inline_keyboard():
