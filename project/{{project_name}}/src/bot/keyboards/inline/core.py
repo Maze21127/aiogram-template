@@ -1,11 +1,10 @@
 from aiogram.filters.callback_data import CallbackData
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from aiogram.utils.keyboard import InlineKeyboardBuilder
-
+from bot.utils.models import Actions
 
 class KeyboardCallback(CallbackData, prefix="keyboard"):
-    id: int  # noqa: A003
-    text: str
+    action: Actions
 
 
 def get_keyboard() -> InlineKeyboardMarkup:
@@ -19,6 +18,6 @@ def get_keyboard() -> InlineKeyboardMarkup:
     )
     builder.row(InlineKeyboardButton(
         text="Callback Data Button",
-        callback_data=KeyboardCallback(id=5, text="Text").pack()
+        callback_data=KeyboardCallback(action=Actions.ACTION).pack()
     ))
     return builder.as_markup()
