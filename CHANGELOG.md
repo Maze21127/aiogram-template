@@ -2,7 +2,30 @@
 
 
 
+## v0.12.0 (2024-02-29)
+
+### Feature
+
+* feat: add cancel button and handler ([`056f40b`](https://github.com/Maze21127/aiogram-template/commit/056f40b84a9b1aba216c2f2bd4ab822221c92f65))
+
+* feat: add actions callback to keyboards ([`334f66c`](https://github.com/Maze21127/aiogram-template/commit/334f66c5898305e6c0093dd94de9322b33ead0d9))
+
+* feat: add int pk ([`1a0b2dc`](https://github.com/Maze21127/aiogram-template/commit/1a0b2dc519b679239ee3374f1c04481816273560))
+
+### Fix
+
+* fix: fix config ([`800419e`](https://github.com/Maze21127/aiogram-template/commit/800419ecfcc6147e475b2afc1c3683d70a917c21))
+
+* fix: add db schema to migration ([`7a87ca8`](https://github.com/Maze21127/aiogram-template/commit/7a87ca8c3119204817d5b80ede5676bb0d5011fe))
+
+* fix: fix alembic .env ([`f7566ba`](https://github.com/Maze21127/aiogram-template/commit/f7566ba85a2ebbe92ce6adc8f48fc3b73e8c67a7))
+
+
 ## v0.11.2 (2024-02-22)
+
+### Chore
+
+* chore(release): v0.11.2 ([`9545c7b`](https://github.com/Maze21127/aiogram-template/commit/9545c7b62bc428a9ec414c566a2f7ed5c2327eab))
 
 ### Fix
 
