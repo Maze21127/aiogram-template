@@ -20,7 +20,7 @@ class DBSettings(BaseSettings):
 {% endif %}
 
 class Settings(BaseSettings):
-    bot: BotSettings() = BotSettings()
+    bot: BotSettings = BotSettings()
     {% if use_redis %}
     redis: RedisSettings = RedisSettings()
     {% endif %}
