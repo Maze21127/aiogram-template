@@ -3,8 +3,17 @@ from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from bot.utils.models import Actions
 
+
 class KeyboardCallback(CallbackData, prefix="keyboard"):
     action: Actions
+
+
+cancel_cb = KeyboardCallback(action=Actions.CANCEL).pack()
+cancel_button = InlineKeyboardButton(
+    text="Отмена ❌",
+    callback_data=cancel_cb,
+)
+cancel_keyboard = InlineKeyboardBuilder().row(cancel_button).as_markup()
 
 
 def get_keyboard() -> InlineKeyboardMarkup:

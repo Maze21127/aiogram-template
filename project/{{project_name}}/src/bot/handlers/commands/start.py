@@ -26,3 +26,11 @@ async def keyboard_callback_handler(callback_query: CallbackQuery,
 async def cmd_help(message: Message, state: FSMContext) -> Message:
     await state.clear()
     return await message.answer(messages.commands.help_message)
+
+
+@router.callback_query(KeyboardCallback.filter(F.action == Actions.CANCEL))
+async def cancel_handler(
+    callback_query: CallbackQuery, state: FSMContext
+) -> None:
+    await state.clear()
+    await callback_query.message.delete()

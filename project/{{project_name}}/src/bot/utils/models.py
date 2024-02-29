@@ -8,3 +8,4 @@ class Commands:
 
 class Actions(str, Enum):
     ACTION = "action"
+    CANCEL = "cancel"
