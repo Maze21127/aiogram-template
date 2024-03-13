@@ -28,7 +28,9 @@ ruff-lsp = "^0.0.51"
 {% if use_pre_commit and (use_ruff or use_commitizen) %}
 pre-commit = "^3.6.0"
 {% endif %}
+{% if use_commitizen %}
 commitizen = "^3.13.0"
+{% endif %}
 {% if use_semantic_release %}python-semantic-release = "^8.7.0"{% endif %}
 {% if include_test %}
 pytest = "^7.4.4"
