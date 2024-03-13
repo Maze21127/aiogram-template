@@ -1,72 +1,83 @@
 version: "3.7"
 services:
-  redis_test:
-    image: redis:7-alpine
-    container_name: test_redis
-    expose:
-      - 6379
-    profiles:
-      - test
-    networks:
-      network:
-        ipv4_address: 10.5.0.3
+		{% if use_redis %}
+    redis:
+    image: redis:5-alpine
+    container_name: arrakis_bot_redis
+    restart: always
+    volumes:
+      - redis-data:/data
+    {% endif %}
 
-  db_test:
+    {% if use_sqlalchemy %}
+    db:
+    image: postgres:16-alpine3.17
+    container_name: {project_name}_db
+    restart: always
+
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d {project_name}_" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: {project_name}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    {% endif %}
+
+		{% if use_sqlalchemy and include_test %}
+    db_test:
     image: postgres:16-alpine3.17
     container_name: test_db
-    expose:
-      - 5432
     profiles:
       - test
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-    networks:
-      network:
-        ipv4_address: 10.5.0.4
+      - DB_SCHEMA=public
+    {% endif %}
 
-  run_test:
+		{% if use_sqlalchemy and include_test %}
+    run_test:
     build:
       context: .
       args:
         - DEV_ENV=main,dev
     container_name: run_test
     depends_on:
-      - redis_test
       - db_test
-      - test_migrations
     environment:
-      - DB_DSN=postgresql+asyncpg://postgres:postgres@10.5.0.4:5432/postgres
-      - REDIS_DSN=redis://10.5.0.3:6379/0
-      - BOT_TOKEN=None
-    command: pytest . --disable-warnings
+      - DB_DSN=postgresql+asyncpg://postgres:postgres@db_test:5432/postgres
+      - DB_SCHEMA=public
+    command: pytest . --disable-warnings -v
     profiles:
       - test
-    networks:
-      - network
+    {% endif %}
 
-  test_migrations:
+		{% if use_sqlalchemy %}
+    migrations:
     build:
-      context:
-        .
+      context: .
       args:
-        - DEV_ENV=main,dev
+        - DEV_ENV=main
     depends_on:
-      - db_test
+      - db
     environment:
-      - DB_DSN=postgresql+asyncpg://postgres:postgres@10.5.0.4:5432/postgres
+      - DB_DSN=postgresql+asyncpg://postgres:postgres@db:5432/{project_name}
+      - DB_SCHEMA=${DB_SCHEMA}
     container_name: migrations
     command: alembic upgrade heads
-    profiles:
-      - test
-    networks:
-      - network
+		{% endif %}
 
-
-networks:
-  network:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 10.5.0.0/16
-          gateway: 10.5.0.1
+volumes:
+	{% if use_redis %}
+		redis-data:
+	{% endif % }
+	{% if use_sqlalchemy %}
+  postgres-data:
+  {% endif % }
