@@ -66,6 +66,7 @@ version_provider = "poetry"
 update_changelog_on_bump = true
 major_version_zero = true
 {% endif %}
+{% if use_semantic_release %}
 [tool.semantic_release]
 version_toml = ["pyproject.toml:tool.poetry.version"]
 branch = "main"
@@ -106,6 +107,7 @@ ignore_token_for_push = false
 [tool.semantic_release.publish]
 dist_glob_patterns = []
 upload_to_vcs_release = false
+{% endif %}
 
 
 [build-system]
