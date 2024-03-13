@@ -3,7 +3,24 @@ import asyncio
 
 import pytest
 
-{% if use_sqlalchemy %}os.environ["DB_DSN"] = "postgresql+asyncpg://postgres:postgres@localhost:5432/postgres"{% endif %}
+def set_env(
+    key: str,
+    value: str,
+    force: bool = False,
+):
+    if force:
+        os.environ[key] = value
+    else:
+        if not os.environ.get(key):
+            os.environ[key] = value
+
+
+set_env("BOT_TOKEN", "")
+
+{% if use_sqlalchemy %}set_env(
+    "DB_DSN", "postgresql+asyncpg://postgres:postgres@localhost:5432/postgres"
+){% endif %}
+
 
 {% if use_sqlalchemy %}from database.core import Base, engine  # noqa: E402{% endif %}
 
