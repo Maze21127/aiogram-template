@@ -1,7 +1,7 @@
 import uuid
 from typing import Annotated, Callable
 
-from sqlalchemy import BigInteger, Boolean, String, types
+from sqlalchemy import BigInteger, Boolean, String, types, Integer
 from sqlalchemy.ext.asyncio import (
     AsyncSession,
     async_sessionmaker,
