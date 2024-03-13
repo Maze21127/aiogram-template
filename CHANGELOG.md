@@ -2,7 +2,46 @@
 
 
 
-## v0.12.0 (2024-02-29)
+## v0.13.0 (2024-03-13)
+
+### Feature
+
+* feat: update ruff hook ([`c4c3d15`](https://github.com/Maze21127/aiogram-template/commit/c4c3d15b53893608e1cc85d88c3fa53b13f69b3e))
+
+* feat: update ruff version ([`baa2406`](https://github.com/Maze21127/aiogram-template/commit/baa24064dff6ffbc25370f994828bf41dd98638c))
+
+* feat: upgrade docker-compose ([`9ab0494`](https://github.com/Maze21127/aiogram-template/commit/9ab04946f95f5a911c287d9dbf29ff28ff3ad406))
+
+* feat: upgrade docker-compose ([`250aafe`](https://github.com/Maze21127/aiogram-template/commit/250aafe76b62fa35b2a3eebdcd376c636e642cea))
+
+* feat: add pyproject.toml to docker image ([`20e3699`](https://github.com/Maze21127/aiogram-template/commit/20e36996607a7fe184cadb795f7bd2e869175775))
+
+### Fix
+
+* fix: move alembic.ini ([`003e7ce`](https://github.com/Maze21127/aiogram-template/commit/003e7ce5e19e5299e10ae2fb78214553a013e7c0))
+
+* fix: move migrations to src ([`b69f512`](https://github.com/Maze21127/aiogram-template/commit/b69f51245dbc44115450b65f06b6ce0248d5d005))
+
+* fix: add endif ([`f44426e`](https://github.com/Maze21127/aiogram-template/commit/f44426e771dfd32f072e317a478cbd1c2680ce36))
+
+* fix: rules for commitizen ([`782e3b4`](https://github.com/Maze21127/aiogram-template/commit/782e3b47f0b6308fcb3c97daeebfb56e3fc43cec))
+
+* fix: edit pre-commit rules installation ([`a8d12f6`](https://github.com/Maze21127/aiogram-template/commit/a8d12f6e54a8ed6ef2ea1b5e24738221d4599fb7))
+
+* fix: rules for use_semantic_release ([`4fa9541`](https://github.com/Maze21127/aiogram-template/commit/4fa954185789b57064b5d8b9dedd9e59124dbe85))
+
+* fix: fix jinja tags ([`95667fc`](https://github.com/Maze21127/aiogram-template/commit/95667fcc7c02b542566723e32cdc9236b3ef6486))
+
+### Style
+
+* style: rules for commitizen ([`14e0725`](https://github.com/Maze21127/aiogram-template/commit/14e07258144b3eaecb8898b98da9ca60736ff26a))
+
+
+## v0.12.0 (2024-02-28)
+
+### Chore
+
+* chore(release): v0.12.0 ([`7610919`](https://github.com/Maze21127/aiogram-template/commit/7610919ac6c75719095ff37f3f6924db562f5c6e))
 
 ### Feature
 
