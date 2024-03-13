@@ -3,14 +3,14 @@ default_language_version:
 
 repos:
 {% if use_ruff %}
-    - repo: https://github.com/astral-sh/ruff-pre-commit
+  - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.3.2
     hooks:
       - id: ruff
         pass_filenames: false
 {% endif %}
 {% if use_commitizen %}
-    - repo: https://github.com/commitizen-tools/commitizen
+  - repo: https://github.com/commitizen-tools/commitizen
     rev: master
     hooks:
       - id: commitizen
