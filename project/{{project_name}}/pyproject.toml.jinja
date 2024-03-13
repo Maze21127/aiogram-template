@@ -25,7 +25,7 @@ greenlet = "^3.0.3"
 ruff = "^0.1.15"
 ruff-lsp = "^0.0.51"
 {% endif %}
-{% if use_pre_commit and use_ruff %}
+{% if use_pre_commit and (use_ruff or use_commitizen) %}
 pre-commit = "^3.6.0"
 {% endif %}
 commitizen = "^3.13.0"
