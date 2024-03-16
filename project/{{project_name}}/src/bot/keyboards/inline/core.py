@@ -30,3 +30,7 @@ def get_keyboard() -> InlineKeyboardMarkup:
         callback_data=KeyboardCallback(action=Actions.ACTION).pack()
     ))
     return builder.as_markup()
+
+
+def add_cancel_button(builder: InlineKeyboardBuilder) -> None:
+    builder.row(cancel_button)
