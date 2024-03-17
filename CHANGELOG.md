@@ -2,7 +2,30 @@
 
 
 
+## v0.14.0 (2024-03-17)
+
+### Feature
+
+* feat: add `add_cancel_button` function to inline.core ([`ba23564`](https://github.com/Maze21127/aiogram-template/commit/ba23564a475f1c4dec609844f32a58c7e3af161d))
+
+### Fix
+
+* fix: fix .pre-commit-config.yaml ([`39344be`](https://github.com/Maze21127/aiogram-template/commit/39344be3fb28f8efd49f9762d659b70d7feec06b))
+
+* fix: add bot token env to test ([`864f5cc`](https://github.com/Maze21127/aiogram-template/commit/864f5cc89ec32cefd4e6f7a2c880523c721b77f9))
+
+* fix: add schema in migration ([`c454475`](https://github.com/Maze21127/aiogram-template/commit/c4544752f0a48964654c73c53569f89b5fa3b401))
+
+* fix: add schema in migration ([`4f324e3`](https://github.com/Maze21127/aiogram-template/commit/4f324e3a40a91a18215a646194fdc66ca461a4d2))
+
+* fix: undefined import ([`f615b5b`](https://github.com/Maze21127/aiogram-template/commit/f615b5b4e781a57f2be1675447ae28bc41a2e96d))
+
+
 ## v0.13.0 (2024-03-13)
+
+### Chore
+
+* chore(release): v0.13.0 ([`95f50a6`](https://github.com/Maze21127/aiogram-template/commit/95f50a637d272e8d1c5235f521c72ca0616240d6))
 
 ### Feature
 
