@@ -9,3 +9,12 @@ def get_keyboard() -> ReplyKeyboardMarkup:
         KeyboardButton(text="Button 2")
     )
     return builder.as_markup(resize_keyboard=True)
+
+
+get_contact_keyboard = (
+    ReplyKeyboardBuilder()
+    .add(
+        KeyboardButton(text="Отправить номер телефона 📱", request_contact=True)
+    )
+    .as_markup(resize_keyboard=True)
+)

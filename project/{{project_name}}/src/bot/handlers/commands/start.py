@@ -17,6 +17,12 @@ async def cmd_start(message: Message, state: FSMContext) -> Message:
     )
 
 
+@router.message(F.contact, F.contact.user_id == F.from_user.id)
+async def get_contact(message: Message, state: FSMContext) -> Message:
+    # Handle contact number
+    ...
+
+
 @router.callback_query(KeyboardCallback.filter(F.action == Actions.ACTION))
 async def keyboard_callback_handler(
     callback_query: CallbackQuery, callback_data: KeyboardCallback
