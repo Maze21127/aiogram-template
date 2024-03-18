@@ -163,7 +163,6 @@ cython_debug/
 /.envs/
 __pycache__
 *.pyc
-/src/sales_scheduling/local_stuff/
 /utils/
 
 
