@@ -2,7 +2,26 @@
 
 
 
-## v0.14.0 (2024-03-17)
+## v0.14.1 (2024-03-18)
+
+### Fix
+
+* fix: edit .gitignore ([`71d8a96`](https://github.com/Maze21127/aiogram-template/commit/71d8a96ab75e64a42c4fa2f5c76e603cb10e02a0))
+
+* fix: edit .gitignore ([`86086d8`](https://github.com/Maze21127/aiogram-template/commit/86086d8297f9338d6fbbb810908f984b47f4f17d))
+
+* fix: fix migration rile ([`21a9aca`](https://github.com/Maze21127/aiogram-template/commit/21a9aca8ba3adb6c829928123cc33b31b003517c))
+
+### Style
+
+* style: ruff lint ([`f7a454b`](https://github.com/Maze21127/aiogram-template/commit/f7a454b866fe7c1019137a7289fce38be97bacc8))
+
+
+## v0.14.0 (2024-03-16)
+
+### Chore
+
+* chore(release): v0.14.0 ([`ef2f295`](https://github.com/Maze21127/aiogram-template/commit/ef2f29597811cebf58c6026e57a175a7c3bd592e))
 
 ### Feature
 
