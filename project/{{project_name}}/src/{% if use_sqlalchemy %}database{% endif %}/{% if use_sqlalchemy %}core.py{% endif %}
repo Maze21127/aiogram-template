@@ -1,15 +1,14 @@
 import uuid
-from typing import Annotated, Callable
+from typing import Annotated
 
-from sqlalchemy import BigInteger, Boolean, String, types, Integer
+from config import get_db_settings
+from sqlalchemy import BigInteger, Boolean, Integer, String, types
 from sqlalchemy.ext.asyncio import (
     AsyncSession,
     async_sessionmaker,
     create_async_engine,
 )
 from sqlalchemy.orm import DeclarativeBase, mapped_column
-
-from config import get_db_settings
 
 db_settings = get_db_settings()
 engine = create_async_engine(
@@ -27,11 +26,17 @@ async def get_session() -> AsyncSession:
         yield session
 
 
-str_256_unique_not_null = Annotated[str, mapped_column(String(256), nullable=False, unique=True)]
+str_256_unique_not_null = Annotated[
+    str, mapped_column(String(256), nullable=False, unique=True)
+]
 str_256_nullable = Annotated[str, mapped_column(String(256), nullable=True)]
 str_256 = Annotated[str, String(256)]
-guid_pk = Annotated[uuid.UUID, mapped_column(primary_key=True, default=uuid.uuid4)]
-big_int_pk = Annotated[int, mapped_column(BigInteger, nullable=False, primary_key=True)]
+guid_pk = Annotated[
+    uuid.UUID, mapped_column(primary_key=True, default=uuid.uuid4)
+]
+big_int_pk = Annotated[
+    int, mapped_column(BigInteger, nullable=False, primary_key=True)
+]
 int_pk = Annotated[
     int, mapped_column(Integer, nullable=False, primary_key=True)
 ]
@@ -43,6 +48,5 @@ class Base(DeclarativeBase):
     type_annotation_map = {
         str_256: String(256),
         big_int_pk: BigInteger(),
-        uuid.UUID: types.UUID()
+        uuid.UUID: types.UUID(),
     }
-

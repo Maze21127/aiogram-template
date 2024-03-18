@@ -6,13 +6,19 @@ from aiogram.types import TelegramObject
 
 
 class ThrottlingMiddleware(BaseMiddleware):
-    def __init__(self, storage: RedisStorage, timeout: int = 10, limit: int = 5) -> None:
+    def __init__(
+        self, storage: RedisStorage, timeout: int = 10, limit: int = 5
+    ) -> None:
         self.storage = storage
         self.timeout = timeout
         self.limit = limit
 
-    async def __call__(self, handler: Callable[[TelegramObject, Dict[str, Any]], Awaitable[Any]], event: TelegramObject,
-                       data: Dict[str, Any]) -> Any:
+    async def __call__(
+        self,
+        handler: Callable[[TelegramObject, Dict[str, Any]], Awaitable[Any]],
+        event: TelegramObject,
+        data: Dict[str, Any],
+    ) -> Any:
         user = f"user{event.from_user.id}"
         value = await self.get_value(user)
 
