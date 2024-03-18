@@ -163,7 +163,6 @@ cython_debug/
 /.envs/
 __pycache__
 *.pyc
-/utils/
 
 
 # ignore ide folders
