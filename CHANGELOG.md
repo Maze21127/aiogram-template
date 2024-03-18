@@ -2,7 +2,18 @@
 
 
 
+## v0.15.0 (2024-03-18)
+
+### Feature
+
+* feat: request phone number button ([`5268d11`](https://github.com/Maze21127/aiogram-template/commit/5268d119981a434195e719edce21b3425d535582))
+
+
 ## v0.14.1 (2024-03-18)
+
+### Chore
+
+* chore(release): v0.14.1 ([`ec18abf`](https://github.com/Maze21127/aiogram-template/commit/ec18abf229f509afd619b042dd421db0d79277ab))
 
 ### Fix
 
