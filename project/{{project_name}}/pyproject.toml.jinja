@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-pydantic = "^2.5.3"
+pydantic = "^2.6.4"
 pydantic-settings = "^2.1.0"
 aiogram = "^3.3.0"
 loguru = "^0.7.2"
@@ -44,7 +44,7 @@ pythonpath = [".", "src"]
 {% if use_ruff %}
 [tool.ruff]
 line-length = 80
-exclude = ["migrations/", "migration/"]
+exclude = ["src/migration/"]
 
 [tool.ruff.lint]
 select = ["A", "B", "C", "E", "F", "I", "Q", "ASYNC", "N", "W", "UP", "T20", "PT", "SIM"]
