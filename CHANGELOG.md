@@ -2,7 +2,24 @@
 
 
 
+## v0.16.0 (2024-03-19)
+
+### Feature
+
+* feat: add db settings to global settings ([`9c7e0d3`](https://github.com/Maze21127/aiogram-template/commit/9c7e0d3878d99ad68d4b23a8cf6691348b33528d))
+
+### Fix
+
+* fix: fix pydantic version ([`5c9ab9c`](https://github.com/Maze21127/aiogram-template/commit/5c9ab9c13d44c6162da4a59ff13742ce5d4e1e83))
+
+* fix: fix docker-compose indents ([`16296fd`](https://github.com/Maze21127/aiogram-template/commit/16296fd53ecccb537210073e8932f15ba08feef9))
+
+
 ## v0.15.0 (2024-03-18)
+
+### Chore
+
+* chore(release): v0.15.0 ([`62914a4`](https://github.com/Maze21127/aiogram-template/commit/62914a48ceb24df1ca1c5357ccdd6440379257c7))
 
 ### Feature
 
