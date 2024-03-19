@@ -21,9 +21,8 @@ class DBSettings(BaseSettings):
 
 class Settings(BaseSettings):
     bot: BotSettings = BotSettings()
-    {% if use_redis %}
-    redis: RedisSettings = RedisSettings()
-    {% endif %}
+    {% if use_sqlalchemy %}db: DBSettings = DBSettings(){% endif %}
+    {% if use_redis %}redis: RedisSettings = RedisSettings(){% endif %}
 
 {% if use_sqlalchemy %}
 def get_db_settings() -> DBSettings:
