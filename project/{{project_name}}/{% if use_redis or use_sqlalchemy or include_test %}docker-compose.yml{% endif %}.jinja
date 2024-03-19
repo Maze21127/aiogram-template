@@ -70,7 +70,7 @@ services:
         environment:
           - DB_DSN=postgresql+asyncpg://postgres:postgres@db:5432/{{ project_name }}
           - DB_SCHEMA=${DB_SCHEMA}
-        container_name: migrations
+        container_name: {{ project_name }}_migrations
         command: alembic upgrade heads
 		{% endif %}
 

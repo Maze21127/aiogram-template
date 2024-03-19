@@ -43,4 +43,4 @@ RUN chown python:python -R /app
 
 USER python
 COPY --chown=python:python ./pyproject.toml .
-COPY --chown=python:python . .
+COPY --chown=python:python ./src .
