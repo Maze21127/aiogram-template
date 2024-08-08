@@ -47,7 +47,7 @@ line-length = 80
 exclude = ["src/migration/"]
 
 [tool.ruff.lint]
-select = ["A", "B", "C", "E", "F", "I", "Q", "ASYNC", "N", "W", "UP", "T20", "PT", "SIM"]
+select = ["A", "B", "C", "E", "F", "I", "Q", "ASYNC", "N", "W", "UP", "T20", "PT", "SIM", "ANN"]
 ignore = ["B008"]
 
 [tool.ruff.lint.per-file-ignores]
@@ -57,6 +57,7 @@ ignore = ["B008"]
 "mixins.py" = ["N805", "A003"] # cls instead self, id for modles
 "exceptions.py" = ["N818"] # exception instead error
 "src/db/core.py" = ["E501"] # too long line for annotated
+"test_*.py" = ["ANN201"]
 {% endif %}
 {% if use_commitizen %}
 [tool.commitizen]
