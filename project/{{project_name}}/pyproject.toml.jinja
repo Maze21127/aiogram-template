@@ -7,29 +7,30 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-pydantic = "^2.5.3"
-pydantic-settings = "^2.1.0"
-aiogram = "^3.3.0"
-loguru = "^0.7.2"
-{% if use_redis %}redis = "^5.0.1"{% endif %}
+pydantic = "^2.8.2"
+pydantic-settings = "^2.4.0"
+aiogram = "^3.12.0"
+loguru = "^0.7.2
+{% if use_redis %}redis = "^5.0.8"{% endif %}
 {% if use_sqlalchemy %}
-alembic = "^1.13.1"
-sqlalchemy = "^2.0.25"
+alembic = "^1.13.2"
+sqlalchemy = "^2.0.32"
 asyncpg = "^0.29.0"
 psycopg2-binary = "^2.9.9"
 greenlet = "^3.0.3"
 {% endif %}
+{% if use_semantic_release %}python-semantic-release = "^9.8.6"{% endif %}
 
 [tool.poetry.group.dev.dependencies]
 {% if use_ruff %}
-ruff = "^0.1.15"
-ruff-lsp = "^0.0.51"
+ruff = "0.6.2"
+ruff-lsp = "0.0.55"
 {% endif %}
 {% if use_pre_commit and (use_ruff or use_commitizen) %}
-pre-commit = "^3.6.0"
+pre-commit = "^3.8.8"
 {% endif %}
 {% if use_commitizen %}commitizen = "^3.13.0"{% endif %}
-{% if use_semantic_release %}python-semantic-release = "^8.7.0"{% endif %}
+
 {% if include_test %}
 pytest = "^7.4.4"
 pytest-asyncio = "^0.23.3"
@@ -44,20 +45,21 @@ pythonpath = [".", "src"]
 {% if use_ruff %}
 [tool.ruff]
 line-length = 80
-exclude = ["src/migration/"]
+extend-exclude = ["hooks/"]
 
 [tool.ruff.lint]
-select = ["A", "B", "C", "E", "F", "I", "Q", "ASYNC", "N", "W", "UP", "T20", "PT", "SIM", "ANN"]
-ignore = ["B008"]
+ignore = ["B008", "ANN101"]
+select = ["A", "B", "C", "E", "F", "I", "Q", "ASYNC", "N", "W", "UP", "T20", "SIM", "ANN", "PL"]
 
 [tool.ruff.lint.per-file-ignores]
-"models.py" = ["A003"] # id for models
-"schemas.py" = ["A003", "N805"] # id for schemas
-"__init__.py" = ["F401"] # unused imports
-"mixins.py" = ["N805", "A003"] # cls instead self, id for modles
-"exceptions.py" = ["N818"] # exception instead error
-"src/db/core.py" = ["E501"] # too long line for annotated
+"__init__.py" = ["E402", "F401", "F403"] # unused imports
+"models.py" = ["N805", "A003"] # cls instead self, id for modles
+"schemas.py" = ["N805", "A003"] # cls instead self, id for modles
+"mixins.py" = ["N805", "A003", "ANN201"] # cls instead self, id for modles
+"requests.py" = ["N805", "A003"] # cls instead self, id for modles
 "test_*.py" = ["ANN201"]
+"src/bot/utils/middlewares/*.py" = ["ANN401"]
+
 {% endif %}
 {% if use_commitizen %}
 [tool.commitizen]
@@ -97,13 +99,12 @@ allowed_tags = ["build", "chore", "ci", "docs", "feat", "fix", "perf", "style", 
 minor_tags = ["feat"]
 patch_tags = ["fix", "perf"]
 
-[tool.semantic_release.remote.token]
-env = "GH_TOKEN"
 
 [tool.semantic_release.remote]
 name = "origin"
 type = "github"
 ignore_token_for_push = false
+token = { env = "GITHUB_TOKEN" }
 
 
 [tool.semantic_release.publish]
