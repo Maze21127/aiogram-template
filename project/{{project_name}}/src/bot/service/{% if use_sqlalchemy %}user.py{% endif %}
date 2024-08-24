@@ -1,29 +1,36 @@
+import contextlib
 from typing import Type
 
 from aiogram import types
-from sqlalchemy.exc import IntegrityError
+from loguru import logger
 from sqlalchemy.ext.asyncio import AsyncSession
 
-import bot.exceptions as exceptions
+from bot import exceptions
+from bot.exceptions import UserNotFoundError
 from database.models import TgUser
 
 
 async def create_user(user: types.User, session: AsyncSession) -> None:
     if user.is_bot:
         raise exceptions.UserIsBotError()
-    session.add(TgUser(
-        id=user.id,
-        first_name=user.first_name,
-        last_name=user.last_name,
-        username=user.username,
-        language_code=user.language_code
-    ))
 
-    try:
-        await session.commit()
-    except IntegrityError as ex:
-        raise exceptions.UserAlreadyExistsError() from ex
-    return
+    with contextlib.suppress(UserNotFoundError):
+        db_user = await get_user(user.id, session)
+        if db_user:
+            raise exceptions.UserAlreadyExistsError()
+
+    session.add(
+        TgUser(
+            id=user.id,
+            first_name=user.first_name,
+            last_name=user.last_name,
+            username=user.username,
+            language_code=user.language_code,
+        )
+    )
+
+    await session.commit()
+    logger.info(f"User {user.id} created")
 
 
 async def get_user(user_id: int, session: AsyncSession) -> Type[TgUser]:
@@ -31,4 +38,3 @@ async def get_user(user_id: int, session: AsyncSession) -> Type[TgUser]:
     if user:
         return user
     raise exceptions.UserNotFoundError()
-

@@ -28,6 +28,6 @@ class ThrottlingMiddleware(BaseMiddleware):
         await self.storage.redis.set(name=user, value=value, ex=self.timeout)
         return await handler(event, data)
 
-    async def get_value(self, user) -> int:
+    async def get_value(self, user: str) -> int:
         value = await self.storage.redis.get(name=user)
         return int(value.decode()) + 1 if value else 0
