@@ -7,7 +7,7 @@ def set_env(
     key: str,
     value: str,
     force: bool = False,
-):
+) -> None:
     if force:
         os.environ[key] = value
     else:
@@ -20,6 +20,8 @@ set_env("BOT_TOKEN", "")
 {% if use_sqlalchemy %}set_env(
     "DB_DSN", "postgresql+asyncpg://postgres:postgres@localhost:5432/postgres"
 ){% endif %}
+
+{% if use_redis %}set_env("REDIS_DSN", "redis://localhost:6379/0"){% endif %}
 
 
 {% if use_sqlalchemy %}from database.core import Base, engine  # noqa: E402{% endif %}
