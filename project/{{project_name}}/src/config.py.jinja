@@ -11,7 +11,6 @@ class RedisSettings(BaseSettings):
     model_config = SettingsConfigDict(env_prefix="REDIS_")
     DSN: str
 {% endif %}
-
 {% if use_sqlalchemy %}
 class DBSettings(BaseSettings):
     model_config = SettingsConfigDict(env_prefix="DB_")
