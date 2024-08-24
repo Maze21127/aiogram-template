@@ -21,6 +21,24 @@ jobs:
       - name: Stop services
         run: docker-compose down
   {% endif %}
+{% if use_semantic_release %}
+  release:
+    runs-on: ubuntu-latest
+    concurrency: release
+    permissions:
+      id-token: write
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Python Semantic Release
+        uses: python-semantic-release/python-semantic-release@v9.8.7
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+{% endif %}
   deploy:
 {% if use_sqlalchemy and use_redis and include_test %}
     needs:
