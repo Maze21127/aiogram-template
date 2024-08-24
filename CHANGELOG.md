@@ -1,8 +1,28 @@
 # CHANGELOG
 
+## v0.19.0 (2024-08-24)
+
+### Unknown
+
+* Merge remote-tracking branch &#39;origin/main&#39; ([`c1177a3`](https://github.com/Maze21127/aiogram-template/commit/c1177a302b14b020fecefef6f9d70cb7dada2299))
+
 ## v0.18.1 (2024-08-24)
 
+### Chore
+
+* chore(release): v0.18.1 ([`48e98b6`](https://github.com/Maze21127/aiogram-template/commit/48e98b608473093e750d19c9b0ffd8d492c9bfa1))
+
+### Feature
+
+* feat: update create user test ([`5d16ac1`](https://github.com/Maze21127/aiogram-template/commit/5d16ac115f2034d6f65d1709f9237a04e80b9368))
+
 ### Fix
+
+* fix: fix test job ([`1fcbc7a`](https://github.com/Maze21127/aiogram-template/commit/1fcbc7afcf095912b7ea8f1f3ff5f23a04aa4a6d))
+
+* fix: fix hooks ([`1d993b5`](https://github.com/Maze21127/aiogram-template/commit/1d993b5271da68790cc9821d6f4ee092ba0e6e29))
+
+* fix: fix redis dsn in tests ([`4b183d8`](https://github.com/Maze21127/aiogram-template/commit/4b183d8c581c5f696c2173091c9649f5e5a3cdba))
 
 * fix: fix pyproject.toml.jinja ([`1306182`](https://github.com/Maze21127/aiogram-template/commit/13061823394358f23dc735539ba938babd5cb6b7))
 
