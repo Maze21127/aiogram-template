@@ -1,4 +1,14 @@
+default_language_version:
+    python: python3.12
+
 repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: main
+    hooks:
+      - id: ruff
+        args: [ --fix ]
+      - id: ruff-format
+
   - repo: https://github.com/commitizen-tools/commitizen
     rev: master
     hooks:
