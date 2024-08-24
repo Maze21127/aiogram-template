@@ -4,10 +4,11 @@ default_language_version:
 repos:
 {% if use_ruff %}
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.3.2
+    rev: main
     hooks:
       - id: ruff
-        pass_filenames: false
+        args: [ --fix ]
+      - id: ruff-format
 {% endif %}
 {% if use_commitizen %}
   - repo: https://github.com/commitizen-tools/commitizen
