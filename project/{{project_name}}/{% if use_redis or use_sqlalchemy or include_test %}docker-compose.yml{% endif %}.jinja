@@ -1,83 +1,82 @@
 version: "3.7"
 services:
-		{% if use_redis %}
-    redis:
-        image: redis:5-alpine
-        container_name: {{ project_name }}_redis
-        restart: always
-        volumes:
-          - redis-data:/data
-    {% endif %}
+{% if use_redis %}
+  redis:
+    image: redis:5-alpine
+    container_name: levita-motivation-bot_redis
+    restart: always
+    volumes:
+      - redis-data:/data
+{% endif %}
 
-    {% if use_sqlalchemy %}
-    db:
-        image: postgres:16-alpine3.17
-        container_name: {{ project_name }}_db
-        restart: always
+{% if use_sqlalchemy %}
+      db:
+    image: postgres:16-alpine3.17
+    container_name: levita-motivation-bot_db
+    restart: always
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d levita-motivation-bot" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
 
-        healthcheck:
-          test: [ "CMD-SHELL", "pg_isready -U postgres -d {{ project_name }}" ]
-          interval: 10s
-          timeout: 5s
-          retries: 5
-          start_period: 10s
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: levita-motivation-bot
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+{% endif %}
 
-        environment:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: {{ project_name }}
-        volumes:
-          - postgres-data:/var/lib/postgresql/data
-    {% endif %}
+{% if use_sqlalchemy and include_test %}
+      db_test:
+    image: postgres:16-alpine3.17
+    container_name: test_db
+    profiles:
+      - test
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - DB_SCHEMA=public
+{% endif %}
 
-		{% if use_sqlalchemy and include_test %}
-    db_test:
-        image: postgres:16-alpine3.17
-        container_name: test_db
-        profiles:
-          - test
-        environment:
-          - POSTGRES_USER=postgres
-          - POSTGRES_PASSWORD=postgres
-          - DB_SCHEMA=public
-    {% endif %}
+{% if use_sqlalchemy and include_test %}
+      run_test:
+    build:
+      context: .
+      args:
+        - DEV_ENV=main,dev
+    container_name: run_test
+    depends_on:
+      - db_test
+    environment:
+      - DB_DSN=postgresql+asyncpg://postgres:postgres@db_test:5432/postgres
+      - DB_SCHEMA=public
+    command: pytest . --disable-warnings -v
+    profiles:
+      - test
+{% endif %}
 
-		{% if use_sqlalchemy and include_test %}
-    run_test:
-        build:
-          context: .
-          args:
-            - DEV_ENV=main,dev
-        container_name: run_test
-        depends_on:
-          - db_test
-        environment:
-          - DB_DSN=postgresql+asyncpg://postgres:postgres@db_test:5432/postgres
-          - DB_SCHEMA=public
-        command: pytest . --disable-warnings -v
-        profiles:
-          - test
-    {% endif %}
-
-		{% if use_sqlalchemy %}
-    migrations:
-        build:
-          context: .
-          args:
-            - DEV_ENV=main
-        depends_on:
-          - db
-        environment:
-          - DB_DSN=postgresql+asyncpg://postgres:postgres@db:5432/{{ project_name }}
-          - DB_SCHEMA=${DB_SCHEMA}
-        container_name: {{ project_name }}_migrations
-        command: alembic upgrade heads
-		{% endif %}
+{% if use_sqlalchemy %}
+      migrations:
+    build:
+      context: .
+      args:
+        - DEV_ENV=main
+    depends_on:
+      - db
+    environment:
+      - DB_DSN=postgresql+asyncpg://postgres:postgres@db:5432/levita-motivation-bot
+      - DB_SCHEMA=${DB_SCHEMA}
+    container_name: levita-motivation-bot_migrations
+    command: alembic upgrade heads
+{% endif %}
 
 volumes:
-	{% if use_redis %}
-		redis-data:
-	{% endif %}
-	{% if use_sqlalchemy %}
+{% if use_redis %}
+  redis-data:
+{% endif %}
+{% if use_sqlalchemy %}
   postgres-data:
-  {% endif %}
+{% endif %}

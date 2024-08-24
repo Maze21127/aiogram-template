@@ -12,14 +12,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Run Redis
-        run: docker-compose --profile test up -d --no-deps --build redis_test
-
       - name: Run Postgres
         run: docker-compose --profile test up -d --no-deps --build db_test
-
-      - name: Run migrations
-        run: docker-compose --profile test up --build test_migrations
 
       - name: Run tests
         run: docker-compose --profile test up --build run_test
