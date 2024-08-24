@@ -1,6 +1,24 @@
 # CHANGELOG
 
+## v0.18.0 (2024-08-24)
+
+### Chore
+
+* chore: update README.md ([`d50ba85`](https://github.com/Maze21127/aiogram-template/commit/d50ba850534cfefdfbf710a361b057250c9b64e4))
+
+### Feature
+
+* feat: update .pre-commit-config.yaml ([`3649d3c`](https://github.com/Maze21127/aiogram-template/commit/3649d3c823830c2827cb62142d17998e000c8476))
+
+### Fix
+
+* fix: fix pyproject.toml.jinja ([`f057d24`](https://github.com/Maze21127/aiogram-template/commit/f057d24c8516813604cd17e8964c3f99033076eb))
+
 ## v0.17.0 (2024-08-24)
+
+### Chore
+
+* chore(release): v0.17.0 ([`584063a`](https://github.com/Maze21127/aiogram-template/commit/584063afe09df7f6a11a1d5ffde89c412db57bce))
 
 ### Feature
 
