@@ -4,6 +4,7 @@ from aiogram import Bot
 from aiogram.types import BotCommand
 from loguru import logger
 
+{% if use_semantic_release %}from bot._version import get_version  # noqa: PLC2701 {% endif %}
 from bot.handlers.commands import router as commands_router
 from bot.loader import bot as bot_instance
 from bot.loader import dp
@@ -25,7 +26,11 @@ async def set_default_commands(bot: Bot) -> None:
 
 async def on_startup(bot: Bot) -> None:
     await set_default_commands(bot)
+    {% if use_semantic_release %}
+    logger.info(f"Bot `{get_version()}` started")
+    {% else %}
     logger.info("Bot started")
+    {% endif %}
 
 
 async def on_shutdown(bot: Bot) -> None:
