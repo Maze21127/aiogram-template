@@ -66,20 +66,20 @@ jobs:
 
             git pull
 
-            docker build -t {{ project_name }}_image .
+            docker build -t {{ project_name | lower }}-bot .
 
-            if docker inspect {{ project_name }} &>/dev/null; then
-                docker stop {{ project_name }} || true
-                docker rm {{ project_name }} || true
+            if docker inspect {{ project_name | lower}} &>/dev/null; then
+                docker stop {{ project_name | lower }} || true
+                docker rm {{ project_name | lower }} || true
             fi
 
             {% if use_sqlalchemy %}
-            if docker inspect migrations &>/dev/null; then
-              docker stop migrations || true
-              docker rm migrations || true
+            if docker inspect {{ project_name | lower }}-migrations &>/dev/null; then
+              docker stop {{ project_name | lower }}-migrations || true
+              docker rm {{ project_name | lower }}-migrations || true
             fi
 
-            if ! docker run --name migrations
+            if ! docker run --name {{ project_name | lower }}-migrations
               -e DB_DSN=${DB_DSN}
               {{ project_name }}
               alembic upgrade heads; then
@@ -88,10 +88,10 @@ jobs:
             fi
             {% endif %}
 
-            docker run --name {{ project_name }} -d
+            docker run --name {{ project_name | lower }}-bot -d
             -e BOT_TOKEN=${BOT_TOKEN}
             {% if use_redis %}-e REDIS_DSN=${REDIS_DSN}{% endif %}
             {% if use_sqlalchemy %}-e DB_DSN=${DB_DSN}{% endif %}
             --restart unless-stopped
-            {{ project_name }}_image
-            python src/bot/main.py
+            {{ project_name | lower }}-bot
+            python bot/main.py
