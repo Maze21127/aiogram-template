@@ -60,6 +60,10 @@ use_workflow:
   help: "Use workflow for CI/CD?"
   default: true
 
+
+_tasks:
+  - "git init --initial-branch=main"
+
 _template_suffix: .jinja
 _subdirectory: project
 _min_copier_version: "9.1.0"
