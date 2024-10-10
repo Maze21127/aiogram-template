@@ -41,7 +41,7 @@ jobs:
       - name: Python Semantic Release
         uses: python-semantic-release/python-semantic-release@v9.8.7
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: '${{ secrets.GITHUB_TOKEN }}'
 {% endif %}
   deploy:
 {% if use_sqlalchemy and use_redis and include_test %}
