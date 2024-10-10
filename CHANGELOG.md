@@ -1,6 +1,20 @@
 # CHANGELOG
 
+## v0.20.2 (2024-10-10)
+
+### Unknown
+
+* Merge remote-tracking branch &#39;origin/main&#39; ([`fc442d9`](https://github.com/Maze21127/aiogram-template/commit/fc442d988db08a01e32afd0a255872f10c6c7121))
+
 ## v0.20.1 (2024-10-10)
+
+### Chore
+
+* chore(release): v0.20.1 ([`c2332fb`](https://github.com/Maze21127/aiogram-template/commit/c2332fb7dc0afe0c9a94a6b67dcf639a7bcdfebf))
+
+### Fix
+
+* fix: fix release job ([`afecc6e`](https://github.com/Maze21127/aiogram-template/commit/afecc6ed4baffb9ce7840abf576668508354d0d3))
 
 ### Unknown
 
