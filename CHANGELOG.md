@@ -1,6 +1,40 @@
 # CHANGELOG
 
+## v0.20.0 (2024-10-05)
+
+### Feature
+
+* feat: add git init after generation ([`99e2453`](https://github.com/Maze21127/aiogram-template/commit/99e2453a628f016e1a8dc29048a678cddbf54d1e))
+
+* feat: creates version file if use semantic release ([`9fede5e`](https://github.com/Maze21127/aiogram-template/commit/9fede5e5f9f66ad877ea380ef0a4debfd9b06893))
+
+* feat: updated ruff rules ([`53bf938`](https://github.com/Maze21127/aiogram-template/commit/53bf9387dadb2c22100b1d926e79379ba8213bb0))
+
+* feat: version in start log ([`adc92b6`](https://github.com/Maze21127/aiogram-template/commit/adc92b6ed67391c47b80fbc098a667eda4b50e40))
+
+* feat: add annotated types to database core ([`9ed83b8`](https://github.com/Maze21127/aiogram-template/commit/9ed83b89cc9bff856c3b3e7c1f877b242af3f4b3))
+
+### Unknown
+
+* Merge remote-tracking branch &#39;origin/main&#39; ([`5b1bcee`](https://github.com/Maze21127/aiogram-template/commit/5b1bcee135cf9806a538c230a29498aa3828e524))
+
 ## v0.19.0 (2024-08-24)
+
+### Chore
+
+* chore(release): v0.19.0 ([`ef105c4`](https://github.com/Maze21127/aiogram-template/commit/ef105c49880dd21e7809a2aa97a21cc4ce66ea12))
+
+### Feature
+
+* feat: remove ruff fix in hook ([`1deeb89`](https://github.com/Maze21127/aiogram-template/commit/1deeb8919c30c9637f0f803892cabe906fe58fe4))
+
+* feat: add semantic-release version up ([`f1d21a2`](https://github.com/Maze21127/aiogram-template/commit/f1d21a25b7dec39695234194f147f7652aca82c4))
+
+* feat: add semantic-release version up ([`ffecaa3`](https://github.com/Maze21127/aiogram-template/commit/ffecaa3890489e17c4567397eba4220ec24c9f9d))
+
+### Style
+
+* style: remove empty line in config.py ([`9d30754`](https://github.com/Maze21127/aiogram-template/commit/9d307549d557e6f80c3f9780b566027e96303214))
 
 ### Unknown
 
