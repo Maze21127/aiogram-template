@@ -24,7 +24,7 @@ pip install copier
 
 Скопировать шаблон
 ```bash
-copier copy gh:Maze21127/aiogram-template project_name
+copier copy gh:Maze21127/aiogram-template project_name --trust
 ```
 
 ## Локальная разработка
