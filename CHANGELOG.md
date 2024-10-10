@@ -1,6 +1,18 @@
 # CHANGELOG
 
+## v0.20.1 (2024-10-10)
+
+### Unknown
+
+* Merge remote-tracking branch &#39;origin/main&#39; ([`9339ead`](https://github.com/Maze21127/aiogram-template/commit/9339ead2a88e771107cab66333f50ee0620747aa))
+
 ## v0.20.0 (2024-10-05)
+
+### Chore
+
+* chore(release): v0.20.0 ([`48e4aa7`](https://github.com/Maze21127/aiogram-template/commit/48e4aa71260b84d20246cfd2de09db6cddaa5749))
+
+* chore: add imports in __init__.py ([`97a1408`](https://github.com/Maze21127/aiogram-template/commit/97a14089731602f7d8929c3e0f9a10f00dc4de5d))
 
 ### Feature
 
@@ -13,6 +25,12 @@
 * feat: version in start log ([`adc92b6`](https://github.com/Maze21127/aiogram-template/commit/adc92b6ed67391c47b80fbc098a667eda4b50e40))
 
 * feat: add annotated types to database core ([`9ed83b8`](https://github.com/Maze21127/aiogram-template/commit/9ed83b89cc9bff856c3b3e7c1f877b242af3f4b3))
+
+### Fix
+
+* fix: fix release job ([`352dca7`](https://github.com/Maze21127/aiogram-template/commit/352dca777910d0fc29b8f7fd3556f9ce330152dd))
+
+* fix: fix deploy pipeline ([`585af02`](https://github.com/Maze21127/aiogram-template/commit/585af020b5405c47395d7a10c7427c41ecbc90e4))
 
 ### Unknown
 
