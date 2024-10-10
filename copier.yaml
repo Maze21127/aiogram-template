@@ -60,9 +60,10 @@ use_workflow:
   help: "Use workflow for CI/CD?"
   default: true
 
-
 _tasks:
-  - "git init --initial-branch=main"
+  - command: "git init {{ project_name }}"
+  - command: "cd {{ project_name }} && git add ."
+  - command: 'cd {{ project_name }} && git commit -m "feat: initial commit" '
 
 _template_suffix: .jinja
 _subdirectory: project
