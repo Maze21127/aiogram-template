@@ -1,8 +1,20 @@
 # CHANGELOG
 
+## v0.20.4 (2025-02-01)
+
+### Unknown
+
+* Merge remote-tracking branch &#39;origin/main&#39; ([`9aa74bd`](https://github.com/Maze21127/aiogram-template/commit/9aa74bd9a98021f28a25296f416a419d608acae0))
+
 ## v0.20.3 (2024-10-10)
 
+### Chore
+
+* chore(release): v0.20.3 ([`7b93581`](https://github.com/Maze21127/aiogram-template/commit/7b935818424d14b65e16b6f9ad342e9ea12596e3))
+
 ### Fix
+
+* fix: fix docker-compose ([`cb2ba42`](https://github.com/Maze21127/aiogram-template/commit/cb2ba42bb1bc8bd5c569e3ae86fcf1906523d0d3))
 
 * fix: fix git init ([`c74c609`](https://github.com/Maze21127/aiogram-template/commit/c74c6099f16869304f7df682d37d6d0b96e8ae34))
 
