@@ -3,19 +3,19 @@ services:
 {% if use_redis %}
   redis:
     image: redis:5-alpine
-    container_name: levita-motivation-bot_redis
+    container_name: {{ project_name }}-redis
     restart: always
     volumes:
       - redis-data:/data
 {% endif %}
 
 {% if use_sqlalchemy %}
-      db:
+  db:
     image: postgres:16-alpine3.17
-    container_name: levita-motivation-bot_db
+    container_name: {{ project_name }}-postgres
     restart: always
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U postgres -d levita-motivation-bot" ]
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d {{ project_name }}" ]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -24,15 +24,15 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: levita-motivation-bot
+      POSTGRES_DB: {{ project_name }}
     volumes:
       - postgres-data:/var/lib/postgresql/data
 {% endif %}
 
 {% if use_sqlalchemy and include_test %}
-      db_test:
+  db_test:
     image: postgres:16-alpine3.17
-    container_name: test_db
+    container_name: {{ project_name }}-postgres-test
     profiles:
       - test
     environment:
@@ -42,12 +42,12 @@ services:
 {% endif %}
 
 {% if use_sqlalchemy and include_test %}
-      run_test:
+  run_test:
     build:
       context: .
       args:
         - DEV_ENV=main,dev
-    container_name: run_test
+    container_name: {{ project_name }}-run-test
     depends_on:
       - db_test
     environment:
@@ -59,7 +59,8 @@ services:
 {% endif %}
 
 {% if use_sqlalchemy %}
-      migrations:
+  migrations:
+    container_name: {{ project_name }}-migrations
     build:
       context: .
       args:
@@ -67,9 +68,8 @@ services:
     depends_on:
       - db
     environment:
-      - DB_DSN=postgresql+asyncpg://postgres:postgres@db:5432/levita-motivation-bot
+      - DB_DSN=postgresql+asyncpg://postgres:postgres@db:5432/{{ project_name }}
       - DB_SCHEMA=${DB_SCHEMA}
-    container_name: levita-motivation-bot_migrations
     command: alembic upgrade heads
 {% endif %}
 
