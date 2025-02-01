@@ -1,6 +1,18 @@
 # CHANGELOG
 
+## v0.20.3 (2024-10-10)
+
+### Fix
+
+* fix: fix git init ([`c74c609`](https://github.com/Maze21127/aiogram-template/commit/c74c6099f16869304f7df682d37d6d0b96e8ae34))
+
+* fix: fix git init ([`1332c71`](https://github.com/Maze21127/aiogram-template/commit/1332c715d198410b94cde03cf0bb82bfaf7a4a8c))
+
 ## v0.20.2 (2024-10-10)
+
+### Chore
+
+* chore(release): v0.20.2 ([`0b5d79e`](https://github.com/Maze21127/aiogram-template/commit/0b5d79e59047f1dda143a3c19c0e0a555326ad7b))
 
 ### Unknown
 
