@@ -7,6 +7,10 @@ repos:
     rev: main
     hooks:
       - id: ruff
+        args:
+          - --fix
+          - --target-version=py312
+      - id: ruff-format
 {% endif %}
 {% if use_commitizen %}
   - repo: https://github.com/commitizen-tools/commitizen

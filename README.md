@@ -1,6 +1,7 @@
 # Шаблон для Aiogram 3
 
 # Features
+- uv/poetry dependencies manager
 - Commitizen (проверка стиля коммитов)
 - Pre-commit (пре-коммит хуки)
 - Ruff (линтер)
@@ -44,10 +45,6 @@ poetry run pre-commit install --hook-type pre-push
 
 Коммиты должны соответствовать шаблону tag: message  
 
-Публикация изменений осуществляется с помощью команды:
-```bash
-semantic-release version 
-``` 
 
 ## Github actions
 Добавить в secrets следующие переменные:

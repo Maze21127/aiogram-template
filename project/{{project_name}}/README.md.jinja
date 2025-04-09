@@ -5,14 +5,18 @@
 ## Локальная разработка
 Установить зависимости
 ```bash
+{% if package_manager == 'poetry' %}
 poetry install --with DEV
+{% elif package_manager == 'uv' %}
+uv sync --dev
+{% endif %}
  ```
 {% if use_pre_commit %}
 Установить git хуки
 ```bash
-poetry run pre-commit install
-poetry run pre-commit install --hook-type commit-msg
-poetry run pre-commit install --hook-type pre-push
+{{package_manager}} run pre-commit install
+{{package_manager}} run pre-commit install --hook-type commit-msg
+{{package_manager}} run pre-commit install --hook-type pre-push
 ```
 {% endif %}
 {% if use_semantic_release %}

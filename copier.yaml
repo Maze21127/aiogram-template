@@ -22,7 +22,7 @@ description:
 
 package_manager:
   type: str
-  help: Which dependency manager do you use?
+  help: "Which dependency manager do you use?"
   choices:
     - poetry
     - uv
