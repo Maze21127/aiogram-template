@@ -1,5 +1,7 @@
 FROM python:3.12.0-bookworm as python-buster-base
 
+WORKDIR /bot
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libpq-dev \
@@ -9,12 +11,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 ADD https://astral.sh/uv/install.sh /uv-installer.sh
 RUN sh /uv-installer.sh && rm /uv-installer.sh
-ENV PATH="/root/.local/bin:$PATH"
 
-WORKDIR /src
+ENV PATH="/root/.local/bin:$PATH"
+ENV PYTHONPATH="${PYTHONPATH}:/src"
 
 COPY /pyproject.toml /uv.lock* ./
 
 RUN uv sync
 
-COPY /src .
+COPY ./src/ .
