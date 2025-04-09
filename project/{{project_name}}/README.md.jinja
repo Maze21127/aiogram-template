@@ -29,9 +29,9 @@ uv sync --dev
 {% endif %}
 ## Run with docker
 ```bash
-docker build -t {{ project_name }} .
+docker build -t {{ project_name|lower }} .
 
-docker run --name {{ project_name }} -d \
+docker run --name {{ project_name|lower }} -d \
   -e BOT_TOKEN=<bot_token> \
   {% if use_redis %}-e REDIS_DSN=<redis://> \{% endif %}
   --restart unless-stopped
