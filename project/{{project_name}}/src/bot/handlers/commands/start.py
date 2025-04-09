@@ -2,6 +2,7 @@ from aiogram import F, Router
 from aiogram.filters import Command, CommandStart
 from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery, Message
+
 from bot.keyboards.inline.core import KeyboardCallback, get_keyboard
 from bot.utils.messages import messages
 from bot.utils.models import Actions, Commands
