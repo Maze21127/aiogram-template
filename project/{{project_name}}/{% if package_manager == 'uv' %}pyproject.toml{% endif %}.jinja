@@ -1,36 +1,34 @@
-[tool.poetry]
+[project]
 name = "{{ project_name }}"
 version = "0.1.0"
 description = "{{ description }}"
 authors = ["{{ author_name }} <{{ author_email }}>"]
 readme = "README.md"
+requires-python = ">=3.12"
 
-[tool.poetry.dependencies]
-python = "^3.12"
-pydantic = "^2.8.2"
-pydantic-settings = "^2.4.0"
-aiogram = "^3.12.0"
-loguru = "^0.7.2"
+dependencies [
+    pydantic = "^2.8.2"
+    pydantic-settings = "^2.4.0"
+    aiogram = "^3.12.0"
+    loguru = "^0.7.2"
 {% if use_redis %}redis = "^5.0.8"{% endif %}
 {% if use_sqlalchemy %}
-alembic = "^1.13.2"
-sqlalchemy = "^2.0.32"
-asyncpg = "^0.29.0"
-psycopg2-binary = "^2.9.9"
-greenlet = "^3.0.3"
+    alembic = "^1.13.2"
+    sqlalchemy = "^2.0.32"
+    asyncpg = "^0.29.0"
+    psycopg2-binary = "^2.9.9"
+    greenlet = "^3.0.3"
 {% endif %}
-{% if use_semantic_release %}python-semantic-release = "^9.8.7"{% endif %}
-
-[tool.poetry.group.dev.dependencies]
+]
+[dependency-groups]
+dev = [
 {% if use_ruff %}
-ruff = "0.6.2"
-ruff-lsp = "0.0.55"
+    ruff = "0.11.1"
 {% endif %}
 {% if use_pre_commit and (use_ruff or use_commitizen) %}
-pre-commit = "^3.8.0"
+    pre-commit = "^3.8.0"
 {% endif %}
-{% if use_commitizen %}commitizen = "^3.13.0"{% endif %}
-
+]
 {% if include_test %}
 pytest = "^7.4.4"
 pytest-asyncio = "^0.23.3"
@@ -45,7 +43,7 @@ pythonpath = [".", "src"]
 
 {% if use_ruff %}
 [tool.ruff]
-line-length = 80
+line-length = 79
 extend-exclude = ["hooks/"]
 
 [tool.ruff.lint]
@@ -116,8 +114,3 @@ token = { env = "GITHUB_TOKEN" }
 dist_glob_patterns = []
 upload_to_vcs_release = false
 {% endif %}
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"

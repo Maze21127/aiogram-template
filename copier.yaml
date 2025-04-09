@@ -20,6 +20,14 @@ description:
   type: str
   help: "Description"
 
+package_manager:
+  type: str
+  help: Which dependency manager do you use?
+  choices:
+    - poetry
+    - uv
+  default: uv
+
 use_ruff:
   type: bool
   help: "Include ruff linter in project?"
