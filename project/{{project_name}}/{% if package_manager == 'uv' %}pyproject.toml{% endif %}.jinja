@@ -73,7 +73,7 @@ major_version_zero = true
 {% endif %}
 {% if use_semantic_release %}
 [tool.semantic_release]
-version_toml = ["pyproject.toml:tool.poetry.version"]
+version_toml = ["pyproject.toml:project.version"]
 version_variables = ["src/bot/_version.py:__version__"]
 branch = "main"
 hvcs = "github"
