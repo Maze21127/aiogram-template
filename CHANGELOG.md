@@ -1,6 +1,40 @@
 # CHANGELOG
 
+## v0.21.0 (2025-04-21)
+
+### Unknown
+
+* Merge remote-tracking branch &#39;origin/main&#39; ([`a8b74ab`](https://github.com/Maze21127/aiogram-template/commit/a8b74ab59d78f04992b0fe17aa9a3bd01e4ea18f))
+
 ## v0.20.4 (2025-02-01)
+
+### Chore
+
+* chore(release): v0.20.4 ([`52d0030`](https://github.com/Maze21127/aiogram-template/commit/52d0030f38b8036566d9cad470562a8e4bb52a41))
+
+### Feature
+
+* feat: add increase_version stage ([`a9615f6`](https://github.com/Maze21127/aiogram-template/commit/a9615f6756719a0448e62930ad7e196914583705))
+
+* feat: add uv supports ([`cb671d3`](https://github.com/Maze21127/aiogram-template/commit/cb671d334f254e3412146cda93e097e5a78d55f3))
+
+### Fix
+
+* fix: fix pyproject for uv ([`9c0a366`](https://github.com/Maze21127/aiogram-template/commit/9c0a3666adf8745428bc7fe90ef68d337ce6eabf))
+
+* fix: fix dockerfiles ([`e1655e9`](https://github.com/Maze21127/aiogram-template/commit/e1655e9c92b08198e4c81b92ecdc443a9d68ecd1))
+
+* fix: fix dockerfiles ([`43493a3`](https://github.com/Maze21127/aiogram-template/commit/43493a32330c8e594fa2906114a4cb8d140ce926))
+
+* fix: fix import version ([`66579e6`](https://github.com/Maze21127/aiogram-template/commit/66579e62c25c15ee5f76bd287865ef86e2e02e33))
+
+* fix: fix docker container name ([`71011b4`](https://github.com/Maze21127/aiogram-template/commit/71011b481e013f30779d9341e76392a43ebdf16e))
+
+* fix: add uv supports ([`d0ef4ff`](https://github.com/Maze21127/aiogram-template/commit/d0ef4ffe35fad1c160d33feb3077ba232c93fd31))
+
+### Style
+
+* style: ruff fixes ([`0553782`](https://github.com/Maze21127/aiogram-template/commit/0553782ee55200474963c6360cb0064806730a64))
 
 ### Unknown
 
