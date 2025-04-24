@@ -1,13 +1,13 @@
 version: "3.7"
 services:
-{% if use_redis %}
+{%- if use_redis %}
   redis:
     image: redis:5-alpine
     container_name: {{ project_name }}-redis
     restart: always
     volumes:
       - redis-data:/data
-{% endif %}
+{%- endif %}
 
 {% if use_sqlalchemy %}
   db:
@@ -27,7 +27,7 @@ services:
       POSTGRES_DB: {{ project_name }}
     volumes:
       - postgres-data:/var/lib/postgresql/data
-{% endif %}
+{%- endif %}
 
 {% if use_sqlalchemy and include_test %}
   db_test:
@@ -39,7 +39,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - DB_SCHEMA=public
-{% endif %}
+{%- endif %}
 
 {% if use_sqlalchemy and include_test %}
   run_test:
@@ -56,7 +56,7 @@ services:
     command: pytest . --disable-warnings -v
     profiles:
       - test
-{% endif %}
+{%- endif %}
 
 {% if use_sqlalchemy %}
   migrations:
@@ -71,12 +71,12 @@ services:
       - DB_DSN=postgresql+asyncpg://postgres:postgres@db:5432/{{ project_name }}
       - DB_SCHEMA=${DB_SCHEMA}
     command: alembic upgrade heads
-{% endif %}
+{%- endif %}
 
 volumes:
-{% if use_redis %}
+{%- if use_redis %}
   redis-data:
-{% endif %}
-{% if use_sqlalchemy %}
+{%- endif %}
+{%- if use_sqlalchemy %}
   postgres-data:
-{% endif %}
+{%- endif %}

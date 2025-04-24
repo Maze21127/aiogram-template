@@ -5,44 +5,64 @@ description = "{{ description }}"
 authors = ["{{ author_name }} <{{ author_email }}>"]
 readme = "README.md"
 
+{# --- Основные зависимости --- #}
+{%- set main_deps = [
+    'python = "^3.12"',
+    'pydantic = "^2.8.2"',
+    'pydantic-settings = "^2.4.0"',
+    'aiogram = "^3.12.0"',
+    'loguru = "^0.7.2"',
+] %}
+{%- if use_redis %}
+  {%- set _ = main_deps.append('redis = "^5.0.8"') %}
+{%- endif %}
+{%- if use_sqlalchemy %}
+  {%- set _ = main_deps.extend([
+    'alembic = "^1.13.2"',
+    'sqlalchemy = "^2.0.32"',
+    'asyncpg = "^0.29.0"',
+    'psycopg2-binary = "^2.9.9"',
+    'greenlet = "^3.0.3"',
+  ]) %}
+{%- endif %}
+{%- if use_semantic_release %}
+  {%- set _ = main_deps.append('python-semantic-release = "^9.8.7"') %}
+{%- endif %}
+
+{# --- Dev зависимости --- #}
+{%- set dev_deps = [] %}
+{%- if use_ruff %}
+  {%- set _ = dev_deps.append('ruff = "0.11.1"') %}
+{%- endif %}
+{%- if use_pre_commit and (use_ruff or use_commitizen) %}
+  {%- set _ = dev_deps.append('pre-commit = "^3.8.0"') %}
+{%- endif %}
+{%- if use_commitizen %}
+  {%- set _ = dev_deps.append('commitizen = "^3.13.0"') %}
+{%- endif %}
+{%- if include_test %}
+  {%- set _ = dev_deps.extend([
+    'pytest = "^7.4.4"',
+    'pytest-asyncio = "^0.23.3"',
+    'faker = "^23.2.1"',
+  ]) %}
+{%- endif %}
+
 [tool.poetry.dependencies]
-python = "^3.12"
-pydantic = "^2.8.2"
-pydantic-settings = "^2.4.0"
-aiogram = "^3.12.0"
-loguru = "^0.7.2"
-{% if use_redis %}redis = "^5.0.8"{% endif %}
-{% if use_sqlalchemy %}
-alembic = "^1.13.2"
-sqlalchemy = "^2.0.32"
-asyncpg = "^0.29.0"
-psycopg2-binary = "^2.9.9"
-greenlet = "^3.0.3"
-{% endif %}
-{% if use_semantic_release %}python-semantic-release = "^9.8.7"{% endif %}
+{{ main_deps | join('\n') }}
 
 [tool.poetry.group.dev.dependencies]
-{% if use_ruff %}
-ruff = "0.11.1"
-{% endif %}
-{% if use_pre_commit and (use_ruff or use_commitizen) %}
-pre-commit = "^3.8.0"
-{% endif %}
-{% if use_commitizen %}commitizen = "^3.13.0"{% endif %}
+{{ dev_deps | join('\n') }}
 
-{% if include_test %}
-pytest = "^7.4.4"
-pytest-asyncio = "^0.23.3"
-faker = "^23.2.1"
-{% endif %}
 
-{% if include_test %}
+{%- if include_test %}
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 pythonpath = [".", "src"]
-{% endif %}
 
-{% if use_ruff %}
+{%- endif %}
+{%- if use_ruff %}
+
 [tool.ruff]
 line-length = 80
 extend-exclude = ["hooks/"]
@@ -63,8 +83,9 @@ select = [
 "test_*.py" = ["ANN201"]
 "src/bot/utils/middlewares/*.py" = ["ANN401"]
 
-{% endif %}
-{% if use_commitizen %}
+{%- endif %}
+{%- if use_commitizen %}
+
 [tool.commitizen]
 name = "cz_conventional_commits"
 tag_format = "v$version"
@@ -72,8 +93,10 @@ version_scheme = "semver"
 version_provider = "poetry"
 update_changelog_on_bump = true
 major_version_zero = true
-{% endif %}
-{% if use_semantic_release %}
+
+{%- endif %}
+{%- if use_semantic_release %}
+
 [tool.semantic_release]
 version_toml = ["pyproject.toml:tool.poetry.version"]
 version_variables = ["src/bot/_version.py:__version__"]
@@ -103,19 +126,17 @@ allowed_tags = ["build", "chore", "ci", "docs", "feat", "fix", "perf", "style", 
 minor_tags = ["feat"]
 patch_tags = ["fix", "perf"]
 
-
 [tool.semantic_release.remote]
 name = "origin"
 type = "github"
 ignore_token_for_push = false
 token = { env = "GITHUB_TOKEN" }
 
-
 [tool.semantic_release.publish]
 dist_glob_patterns = []
 upload_to_vcs_release = false
-{% endif %}
 
+{%- endif %}
 
 [build-system]
 requires = ["poetry-core"]
